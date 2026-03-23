@@ -599,6 +599,21 @@
       }
 
       /* ── Responsive ────────────────────────────── */
+      /* ── Tablet ────────────────────────────────── */
+      @media (max-width: 1024px) {
+        .hero-avatar {
+          height: 72vh;
+          opacity: 0.7;
+        }
+        .work-item {
+          grid-template-columns: 60px 1fr auto;
+        }
+        .work-year {
+          display: none;
+        }
+      }
+
+      /* ── Mobile landscape / small tablet ───────── */
       @media (max-width: 820px) {
         nav {
           padding: 20px 24px;
@@ -607,47 +622,87 @@
           display: none;
         }
         .hero {
-          padding: 110px 24px 60px;
+          padding: 100px 24px 56px;
+        }
+        .hero-avatar {
+          height: 55vw;
+          right: -4%;
+          opacity: 0.55;
         }
         .hero-badge {
-          right: 24px;
-          top: 108px;
+          left: 24px;
+          top: 100px;
+        }
+        .hero-foot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+        }
+        .hero-scroll-label {
+          display: none;
         }
         .about {
-          padding: 80px 24px;
+          padding: 72px 24px;
         }
         .about-grid {
           grid-template-columns: 1fr;
-          gap: 44px;
+          gap: 40px;
         }
         .work {
-          padding: 80px 24px;
+          padding: 72px 24px;
         }
         .work-item {
-          grid-template-columns: 56px 1fr;
+          grid-template-columns: 48px 1fr;
+          gap: 16px;
+          padding: 28px 0;
         }
         .work-chips,
         .work-year {
           display: none;
         }
+        .work-desc {
+          font-size: 11px;
+        }
         .stack {
-          padding: 80px 24px;
+          padding: 72px 24px;
         }
         .stack-grid {
           grid-template-columns: repeat(2, 1fr);
         }
         .contact {
-          padding: 80px 24px;
+          padding: 72px 24px 80px;
+        }
+        .contact-socials {
+          gap: 28px;
         }
         footer {
           padding: 18px 24px;
           flex-direction: column;
           gap: 6px;
+          text-align: center;
         }
       }
+
+      /* ── Mobile portrait ────────────────────────── */
       @media (max-width: 480px) {
+        .hero-avatar {
+          height: 64vw;
+          opacity: 0.45;
+        }
+        .hero-name {
+          font-size: clamp(72px, 20vw, 88px);
+        }
         .stack-grid {
           grid-template-columns: 1fr;
+        }
+        .about-headline {
+          font-size: clamp(32px, 9vw, 48px);
+        }
+        .contact-headline {
+          font-size: clamp(38px, 12vw, 64px);
+        }
+        .contact-email {
+          font-size: clamp(18px, 6vw, 28px);
         }
       }
     </style>
