@@ -623,15 +623,21 @@
         }
         .hero {
           padding: 100px 24px 56px;
+          min-height: auto;
+          justify-content: flex-start;
+          gap: 32px;
         }
         .hero-avatar {
           height: 55vw;
           right: -4%;
+          bottom: 0;
           opacity: 0.55;
+          pointer-events: none;
         }
         .hero-badge {
-          left: 24px;
-          top: 100px;
+          position: relative;
+          left: auto;
+          top: auto;
         }
         .hero-foot {
           flex-direction: column;
@@ -686,8 +692,8 @@
       /* ── Mobile portrait ────────────────────────── */
       @media (max-width: 480px) {
         .hero-avatar {
-          height: 64vw;
-          opacity: 0.45;
+          height: 60vw;
+          opacity: 0.4;
         }
         .hero-name {
           font-size: clamp(72px, 20vw, 88px);
