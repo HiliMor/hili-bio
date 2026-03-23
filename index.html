@@ -157,10 +157,22 @@
         overflow: hidden;
       }
 
+      .hero-avatar {
+        position: absolute;
+        right: -2%;
+        bottom: 0;
+        height: 92vh;
+        width: auto;
+        pointer-events: none;
+        user-select: none;
+        mix-blend-mode: multiply;
+        opacity: 0.88;
+      }
+
       .hero-badge {
         position: absolute;
         top: 120px;
-        right: 44px;
+        left: 44px;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -405,11 +417,27 @@
       .work-item:hover .work-num {
         color: var(--ink);
       }
+      .work-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
       .work-title {
-        font-size: clamp(26px, 3vw, 46px);
+        font-size: clamp(22px, 2.6vw, 40px);
         font-weight: 700;
         letter-spacing: -0.025em;
         line-height: 1;
+      }
+      .work-desc {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 540px;
+        transition: color 0.3s;
+      }
+      .work-item:hover .work-desc {
+        color: rgba(28, 20, 24, 0.6);
       }
       .work-chips {
         display: flex;
@@ -642,6 +670,8 @@
 
     <!-- ── Hero ──────────────────────────────────── -->
     <section class="hero">
+      <img src="avatar.png" alt="" class="hero-avatar" />
+
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         Available for work
@@ -682,9 +712,9 @@
             data-driven systems. Currently part of a core team developing
             complex document management platforms, I specialize in bridging the
             gap between legacy infrastructures and modern tech stacks. From
-            creating seamless Office integrations to implementing AI-driven
-            automation and data retrieval, I enjoy solving the technical puzzles
-            that come with real-world, high-impact products.
+            creating seamless productivity tool integrations to implementing
+            AI-driven automation and data retrieval, I enjoy solving the
+            technical puzzles that come with real-world, high-impact products.
           </p>
           <div class="about-stats">
             <div>
@@ -710,44 +740,47 @@
 
       <div class="work-item reveal">
         <span class="work-num">001</span>
-        <span class="work-title">Orbit Dashboard</span>
-        <div class="work-chips">
-          <span class="chip">React</span>
-          <span class="chip">Node</span>
-          <span class="chip">PostgreSQL</span>
+        <div class="work-info">
+          <span class="work-title">Enterprise Document Platform</span>
+          <span class="work-desc">Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.</span>
         </div>
-        <span class="work-year">2024</span>
+        <div class="work-chips">
+          <span class="chip">.NET</span>
+          <span class="chip">Angular</span>
+          <span class="chip">MSSQL</span>
+          <span class="chip">OpenShift</span>
+        </div>
+        <span class="work-year">2025—2026</span>
       </div>
 
       <div class="work-item reveal">
         <span class="work-num">002</span>
-        <span class="work-title">Kova Design System</span>
-        <div class="work-chips">
-          <span class="chip">TypeScript</span>
-          <span class="chip">Storybook</span>
+        <div class="work-info">
+          <span class="work-title">Desktop &amp; Web Integration</span>
+          <span class="work-desc">Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.</span>
         </div>
-        <span class="work-year">2024</span>
+        <div class="work-chips">
+          <span class="chip">VSTO</span>
+          <span class="chip">WebView2</span>
+          <span class="chip">.NET</span>
+          <span class="chip">Angular</span>
+        </div>
+        <span class="work-year">2025—2026</span>
       </div>
 
       <div class="work-item reveal">
         <span class="work-num">003</span>
-        <span class="work-title">Pulse Analytics</span>
+        <div class="work-info">
+          <span class="work-title">AI-Powered Data Retrieval Engine</span>
+          <span class="work-desc">Developed an intelligent data retrieval layer using the Model Context Protocol to bridge the gap between Large Language Models and complex enterprise databases. I engineered automated utilities for extracting unstructured data from legacy files, creating a seamless pipeline that transforms raw technical data into actionable, AI-accessible insights.</span>
+        </div>
         <div class="work-chips">
           <span class="chip">Python</span>
-          <span class="chip">FastAPI</span>
-          <span class="chip">D3.js</span>
+          <span class="chip">MCP</span>
+          <span class="chip">MSSQL</span>
+          <span class="chip">AI APIs</span>
         </div>
-        <span class="work-year">2023</span>
-      </div>
-
-      <div class="work-item reveal">
-        <span class="work-num">004</span>
-        <span class="work-title">Flume Mobile App</span>
-        <div class="work-chips">
-          <span class="chip">React Native</span>
-          <span class="chip">GraphQL</span>
-        </div>
-        <span class="work-year">2023</span>
+        <span class="work-year">2026</span>
       </div>
     </section>
 
