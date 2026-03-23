@@ -627,27 +627,32 @@
           justify-content: flex-start;
           gap: 12px;
         }
-        .hero-avatar {
-          position: relative;
-          display: block;
-          width: 68%;
-          height: auto;
-          margin: 4px auto;
-          right: auto;
-          top: auto;
-          bottom: auto;
-          opacity: 0.65;
-        }
-        .hero-name {
-          margin-bottom: 0;
-        }
-        .hero-foot {
-          margin-top: 4px;
-        }
         .hero-badge {
           position: relative;
           left: auto;
           top: auto;
+          order: 1;
+        }
+        .hero-name {
+          margin-bottom: 0;
+          order: 2;
+        }
+        .hero-foot {
+          margin-top: 4px;
+          order: 3;
+        }
+        .hero-avatar {
+          position: relative;
+          display: block;
+          width: 72%;
+          max-width: 280px;
+          height: auto;
+          margin: 20px auto 0;
+          right: auto;
+          top: auto;
+          bottom: auto;
+          opacity: 0.75;
+          order: 4;
         }
         .hero-foot {
           flex-direction: column;
