@@ -659,7 +659,7 @@
 
     <!-- ── Nav ───────────────────────────────────── -->
     <nav>
-      <a href="#" class="nav-logo">HILI — DEV</a>
+      <a href="#" class="nav-logo">HILI — BIO</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
@@ -1004,11 +1004,11 @@
       });
 
       /* ── Nav smooth scroll (no URL change) ─────── */
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', e => {
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", (e) => {
           e.preventDefault();
-          const target = document.querySelector(link.getAttribute('href'));
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) target.scrollIntoView({ behavior: "smooth" });
         });
       });
     </script>
