@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -20,12 +20,12 @@
       }
 
       :root {
-        --cream: #f0ead8;
-        --ink: #111111;
-        --blue: #2752e8;
-        --lime: #c8f135;
-        --muted: rgba(17, 17, 17, 0.38);
-        --border: rgba(17, 17, 17, 0.12);
+        --cream: #faf5f0;
+        --ink: #1c1418;
+        --rose: #b85c6e;
+        --blush: #f2d9d4;
+        --muted: rgba(28, 20, 24, 0.38);
+        --border: rgba(28, 20, 24, 0.1);
       }
 
       html {
@@ -75,36 +75,34 @@
         position: fixed;
         width: 8px;
         height: 8px;
-        background: var(--ink);
+        background: #fff;
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
-        transition:
-          background 0.25s,
-          transform 0.1s;
+        transition: transform 0.1s;
+        mix-blend-mode: difference;
         will-change: left, top;
       }
       .cursor-ring {
         position: fixed;
         width: 34px;
         height: 34px;
-        border: 1.5px solid var(--ink);
+        border: 1.5px solid #fff;
         border-radius: 50%;
         pointer-events: none;
         z-index: 9998;
         transform: translate(-50%, -50%);
-        opacity: 0.45;
+        opacity: 0.6;
+        mix-blend-mode: difference;
         transition:
           opacity 0.25s,
           width 0.3s,
-          height 0.3s,
-          border-color 0.25s;
+          height 0.3s;
         will-change: left, top;
       }
       body.hovered .cursor {
-        transform: translate(-50%, -50%) scale(2.8);
-        background: var(--blue);
+        transform: translate(-50%, -50%) scale(3.5);
       }
       body.hovered .cursor-ring {
         opacity: 0;
@@ -175,7 +173,7 @@
       .hero-badge-dot {
         width: 6px;
         height: 6px;
-        background: #22c55e;
+        background: #7db89a;
         border-radius: 50%;
         animation: blink 2.2s ease infinite;
       }
@@ -198,7 +196,7 @@
         user-select: none;
       }
       .hero-name .line-2 {
-        -webkit-text-stroke: 2px var(--ink);
+        -webkit-text-stroke: 2px var(--rose);
         color: transparent;
         display: block;
       }
@@ -274,7 +272,7 @@
       .ticker-item::before {
         content: "✦";
         font-size: 8px;
-        color: var(--blue);
+        color: var(--rose);
       }
       @keyframes scroll-left {
         from {
@@ -325,7 +323,9 @@
       .about-headline em {
         font-style: italic;
         font-weight: 300;
-        color: var(--blue);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.18em;
+        color: var(--rose);
       }
       .about-right {
         padding-top: 8px;
@@ -355,7 +355,7 @@
         font-weight: 600;
       }
       .stat-value.open {
-        color: #4ade80;
+        color: #7db89a;
       }
 
       /* ── Work ──────────────────────────────────── */
@@ -382,7 +382,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: var(--lime);
+        background: var(--blush);
         transform: translateX(-101%);
         transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
         z-index: 0;
@@ -453,9 +453,9 @@
       .stack-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        border: 1px solid rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 220, 210, 0.07);
         gap: 1px;
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(255, 220, 210, 0.07);
         margin-top: 0;
       }
       .stack-cell {
@@ -464,7 +464,7 @@
         transition: background 0.25s;
       }
       .stack-cell:hover {
-        background: #181818;
+        background: #2a1e24;
       }
       .cell-cat {
         font-family: "DM Mono", monospace;
@@ -504,9 +504,9 @@
         font-size: clamp(22px, 3.2vw, 52px);
         font-weight: 700;
         letter-spacing: -0.02em;
-        color: var(--blue);
+        color: var(--rose);
         text-decoration: none;
-        border-bottom: 3px solid var(--blue);
+        border-bottom: 3px solid var(--rose);
         transition:
           color 0.2s,
           border-color 0.2s;
@@ -654,7 +654,6 @@
 
       <div class="hero-foot">
         <div class="hero-desc">
-          <strong id="heroRole">Software Engineer</strong>
           <p>
             Building products that balance<br />technical rigor with great UX.
           </p>
@@ -673,19 +672,19 @@
       <div class="section-tag">01 / About</div>
       <div class="about-grid">
         <div class="about-headline reveal">
-          I write code<br />
-          that <em>feels</em><br />
-          as good as<br />
-          it works.
+          Data, code,<br />
+          and <em>everything</em><br />
+          in between.
         </div>
         <div class="about-right reveal">
           <p class="about-bio">
-            Full-stack developer with a taste for thoughtful product design. I
-            care about the intersection of engineering and experience — the
-            stuff that happens when you make something technically solid and
-            genuinely delightful to use.<br /><br />
-            I work best in small teams with high trust and high standards.
-            Currently open to freelance projects and full-time roles.
+            I am a full-Stack Developer working on internal enterprise tools and
+            data-driven systems. Currently part of a core team developing
+            complex document management platforms, I specialize in bridging the
+            gap between legacy infrastructures and modern tech stacks. From
+            creating seamless Office integrations to implementing AI-driven
+            automation and data retrieval, I enjoy solving the technical puzzles
+            that come with real-world, high-impact products.
           </p>
           <div class="about-stats">
             <div>
@@ -694,11 +693,7 @@
             </div>
             <div>
               <div class="stat-label">Experience</div>
-              <div class="stat-value">5+ years</div>
-            </div>
-            <div>
-              <div class="stat-label">Focus</div>
-              <div class="stat-value">Full-Stack</div>
+              <div class="stat-value">1+ years</div>
             </div>
             <div>
               <div class="stat-label">Status</div>
@@ -761,50 +756,60 @@
       <div class="section-tag">03 / Stack</div>
       <div class="stack-grid reveal">
         <div class="stack-cell">
-          <div class="cell-cat">Frontend</div>
-          <div class="cell-name">React / Next.js</div>
+          <div class="cell-cat">Web</div>
+          <div class="cell-name">Angular</div>
           <div class="cell-desc">
-            Component-driven UIs with a sharp eye for detail
+            Working with frontend components in enterprise systems.
           </div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Backend</div>
-          <div class="cell-name">Node &amp; Python</div>
+          <div class="cell-cat">Server</div>
+          <div class="cell-name">.NET</div>
           <div class="cell-desc">
-            REST &amp; GraphQL APIs, microservices, serverless
+            Handling server-side logic and API integrations.
           </div>
         </div>
         <div class="stack-cell">
           <div class="cell-cat">Data</div>
-          <div class="cell-name">Postgres / Redis</div>
+          <div class="cell-name">MSSQL / Mongo</div>
           <div class="cell-desc">
-            Relational modelling, caching, search indices
+            Managing databases and building complex queries.
+          </div>
+        </div>
+        <div class="stack-cell">
+          <div class="cell-cat">Office</div>
+          <div class="cell-name">Outlook / Word</div>
+          <div class="cell-desc">
+            Building add-ins and connecting them to our apps.
+          </div>
+        </div>
+        <div class="stack-cell">
+          <div class="cell-cat">Tools</div>
+          <div class="cell-name">Python / AI</div>
+          <div class="cell-desc">
+            Using automation and AI to speed up development.
           </div>
         </div>
         <div class="stack-cell">
           <div class="cell-cat">Infra</div>
-          <div class="cell-name">AWS / Docker</div>
-          <div class="cell-desc">CI/CD, container orchestration, IaC</div>
+          <div class="cell-name">OpenShift / Helm</div>
+          <div class="cell-desc">
+            Deploying and monitoring applications in the cloud.
+          </div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Language</div>
-          <div class="cell-name">TypeScript</div>
-          <div class="cell-desc">Strong typing across the full stack</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat">Testing</div>
-          <div class="cell-name">Jest / Cypress</div>
-          <div class="cell-desc">Unit, integration, and E2E coverage</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat">Design</div>
-          <div class="cell-name">Figma</div>
-          <div class="cell-desc">Fluent in design systems and handoff</div>
+          <div class="cell-cat">Flow</div>
+          <div class="cell-name">Kafka / Logs</div>
+          <div class="cell-desc">
+            Understanding system events and troubleshooting.
+          </div>
         </div>
         <div class="stack-cell">
           <div class="cell-cat">Currently</div>
-          <div class="cell-name">Learning Rust</div>
-          <div class="cell-desc">Because it never lets you lie to yourself</div>
+          <div class="cell-name">Improving Skills</div>
+          <div class="cell-desc">
+            Exploring new ways to integrate AI into my workflow.
+          </div>
         </div>
       </div>
     </section>
@@ -817,8 +822,9 @@
         >hello@hili.bio</a
       >
       <div class="contact-socials reveal">
-        <a href="#" class="social-link">GitHub</a>
-        <a href="#" class="social-link">LinkedIn</a>
+        <a href="https://github.com/HiliMor" target="_blank" class="social-link"
+          >GitHub</a
+        >
         <a href="#" class="social-link">Read.cv</a>
       </div>
     </section>
@@ -826,7 +832,6 @@
     <!-- ── Footer ─────────────────────────────────── -->
     <footer>
       <span class="footer-txt">© 2024 Hili Mor. All rights reserved.</span>
-      <span class="footer-txt">Designed &amp; built by hand</span>
     </footer>
 
     <script>
@@ -864,51 +869,25 @@
 
       /* ── Ticker ─────────────────────────────────── */
       const SKILLS = [
-        "React",
-        "TypeScript",
-        "Node.js",
+        "Angular",
+        ".NET",
+        "MSSQL",
+        "MongoDB",
+        "Outlook Add-ins",
+        "Word Add-ins",
         "Python",
-        "PostgreSQL",
-        "Docker",
-        "GraphQL",
-        "Next.js",
-        "AWS",
-        "Redis",
-        "Figma",
-        "CI/CD",
-        "React Native",
-        "Jest",
-        "Cypress",
-        "Storybook",
+        "AI Automation",
+        "OpenShift",
+        "Helm",
+        "Kafka",
+        "C#",
+        "REST APIs",
       ];
       const track = document.getElementById("tickerTrack");
       const chunk = SKILLS.map(
         (s) => `<span class="ticker-item">${s}</span>`,
       ).join("");
       track.innerHTML = chunk + chunk + chunk; // triple for seamless loop
-
-      /* ── Hero role rotator ──────────────────────── */
-      const ROLES = [
-        "Software Engineer",
-        "Full-Stack Developer",
-        "Product Builder",
-        "UI Engineer",
-      ];
-      let ri = 0;
-      const roleEl = document.getElementById("heroRole");
-
-      setInterval(() => {
-        ri = (ri + 1) % ROLES.length;
-        roleEl.style.transition = "none";
-        roleEl.style.opacity = "0";
-        roleEl.style.transform = "translateY(8px)";
-        setTimeout(() => {
-          roleEl.textContent = ROLES[ri];
-          roleEl.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-          roleEl.style.opacity = "1";
-          roleEl.style.transform = "translateY(0)";
-        }, 280);
-      }, 2800);
 
       /* ── Text scramble ──────────────────────────── */
       const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
