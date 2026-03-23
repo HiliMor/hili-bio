@@ -722,10 +722,6 @@
               <div class="stat-value">Tel Aviv, IL</div>
             </div>
             <div>
-              <div class="stat-label">Experience</div>
-              <div class="stat-value">1+ years</div>
-            </div>
-            <div>
               <div class="stat-label">Status</div>
               <div class="stat-value open">Open to work</div>
             </div>
@@ -742,7 +738,13 @@
         <span class="work-num">001</span>
         <div class="work-info">
           <span class="work-title">Enterprise Document Platform</span>
-          <span class="work-desc">Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.</span>
+          <span class="work-desc"
+            >Contributing to a high-scale internal platform used by thousands of
+            employees for creating and managing sensitive documents. My role
+            involves maintaining core legacy infrastructures while developing
+            new features for the next-generation version, ensuring data
+            integrity and system stability.</span
+          >
         </div>
         <div class="work-chips">
           <span class="chip">.NET</span>
@@ -757,7 +759,13 @@
         <span class="work-num">002</span>
         <div class="work-info">
           <span class="work-title">Desktop &amp; Web Integration</span>
-          <span class="work-desc">Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.</span>
+          <span class="work-desc"
+            >Bridging the gap between web applications and Microsoft Office
+            tools. I developed seamless integrations for Outlook and Word,
+            allowing users to interact with complex enterprise data directly
+            within their productivity environment, significantly streamlining
+            organizational workflows.</span
+          >
         </div>
         <div class="work-chips">
           <span class="chip">VSTO</span>
@@ -772,7 +780,14 @@
         <span class="work-num">003</span>
         <div class="work-info">
           <span class="work-title">AI-Powered Data Retrieval Engine</span>
-          <span class="work-desc">Developed an intelligent data retrieval layer using the Model Context Protocol to bridge the gap between Large Language Models and complex enterprise databases. I engineered automated utilities for extracting unstructured data from legacy files, creating a seamless pipeline that transforms raw technical data into actionable, AI-accessible insights.</span>
+          <span class="work-desc"
+            >Developed an intelligent data retrieval layer using the Model
+            Context Protocol to bridge the gap between Large Language Models and
+            complex enterprise databases. I engineered automated utilities for
+            extracting unstructured data from legacy files, creating a seamless
+            pipeline that transforms raw technical data into actionable,
+            AI-accessible insights.</span
+          >
         </div>
         <div class="work-chips">
           <span class="chip">Python</span>
@@ -858,13 +873,12 @@
         <a href="https://github.com/HiliMor" target="_blank" class="social-link"
           >GitHub</a
         >
-        <a href="#" class="social-link">Read.cv</a>
       </div>
     </section>
 
     <!-- ── Footer ─────────────────────────────────── -->
     <footer>
-      <span class="footer-txt">© 2024 Hili Mor. All rights reserved.</span>
+      <span class="footer-txt">© 2026 Hili Mor. All rights reserved.</span>
     </footer>
 
     <script>
@@ -987,6 +1001,15 @@
       /* ── Work item stagger ──────────────────────── */
       document.querySelectorAll(".work-item").forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.07}s`;
+      });
+
+      /* ── Nav smooth scroll (no URL change) ─────── */
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
       });
     </script>
   </body>
