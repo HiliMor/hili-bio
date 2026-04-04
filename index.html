@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Heebo:wght@300;400;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -131,6 +131,21 @@
         justify-content: space-between;
         align-items: center;
         mix-blend-mode: difference;
+      }
+      .lang-toggle {
+        background: none;
+        border: 1px solid rgba(255,255,255,0.55);
+        color: #fff;
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 5px 11px;
+        cursor: none;
+        transition: opacity 0.2s;
+      }
+      .lang-toggle:hover {
+        opacity: 0.5;
       }
       .nav-logo {
         font-family: "DM Mono", monospace;
@@ -528,7 +543,7 @@
 
       /* ── Contact ───────────────────────────────── */
       .contact {
-        padding: 130px 44px 110px;
+        padding: 120px 44px 80px;
       }
       .contact-headline {
         font-size: clamp(48px, 7.5vw, 128px);
@@ -536,7 +551,15 @@
         letter-spacing: -0.035em;
         line-height: 0.92;
         text-transform: uppercase;
-        margin-bottom: 56px;
+        margin-bottom: 40px;
+      }
+      .contact-sub {
+        font-family: "DM Mono", monospace;
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 420px;
+        margin-bottom: 48px;
       }
       .contact-email {
         display: inline-block;
@@ -607,6 +630,57 @@
       .reveal.in {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      /* ── RTL (Hebrew) ─────────────────────────── */
+      html[dir="rtl"] body,
+      html[dir="rtl"] .about-bio,
+      html[dir="rtl"] .hero-desc p,
+      html[dir="rtl"] .work-desc,
+      html[dir="rtl"] .cell-desc,
+      html[dir="rtl"] .stat-label,
+      html[dir="rtl"] .stat-value,
+      html[dir="rtl"] .section-tag,
+      html[dir="rtl"] .nav-links a,
+      html[dir="rtl"] .footer-txt,
+      html[dir="rtl"] .hero-name,
+      html[dir="rtl"] .about-headline,
+      html[dir="rtl"] .work-title,
+      html[dir="rtl"] .cell-name,
+      html[dir="rtl"] .contact-headline {
+        font-family: "Heebo", sans-serif;
+      }
+      html[dir="rtl"] .hero-badge {
+        left: auto;
+        right: 44px;
+      }
+      html[dir="rtl"] .hero-avatar {
+        right: auto;
+        left: -2%;
+      }
+      html[dir="rtl"] .hero-scroll-label {
+        writing-mode: vertical-rl;
+      }
+      html[dir="rtl"] .section-tag::after {
+        margin-right: auto;
+      }
+      html[dir="rtl"] .work-year {
+        text-align: left;
+      }
+      html[dir="rtl"] .hero-foot {
+        flex-direction: row-reverse;
+      }
+      html[dir="rtl"] .contact {
+        text-align: right;
+      }
+      @media (max-width: 820px) {
+        html[dir="rtl"] .hero-badge {
+          right: auto;
+          left: auto;
+        }
+        html[dir="rtl"] .hero-avatar {
+          left: auto;
+        }
       }
 
       /* ── Responsive ────────────────────────────── */
@@ -760,11 +834,12 @@
     <nav>
       <a href="#" class="nav-logo">HILI — BIO</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav-about">About</a></li>
+        <li><a href="#work" data-i18n="nav-work">Work</a></li>
+        <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
       </ul>
+      <button class="lang-toggle" id="langToggle">HE</button>
     </nav>
 
     <!-- ── Hero ──────────────────────────────────── -->
@@ -773,7 +848,7 @@
 
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Available for work
+        <span data-i18n="hero-badge">Available for work</span>
       </div>
 
       <div class="hero-name" id="heroName">
@@ -782,11 +857,6 @@
       </div>
 
       <div class="hero-foot">
-        <div class="hero-desc">
-          <p>
-            Bridging legacy infrastructures<br />and modern AI-driven solutions.
-          </p>
-        </div>
         <div class="hero-scroll-label">Scroll</div>
       </div>
     </section>
@@ -798,18 +868,18 @@
 
     <!-- ── About ─────────────────────────────────── -->
     <section class="about" id="about">
-      <div class="section-tag">01 / About</div>
+      <div class="section-tag" data-i18n="section-about">01 / About</div>
       <div class="about-grid">
-        <div class="about-headline reveal">
+        <div class="about-headline reveal" data-i18n="about-headline">
           Data, code,<br />
           and <em>everything</em><br />
           in between.
         </div>
         <div class="about-right reveal">
-          <p class="about-bio">
+          <p class="about-bio" data-i18n="about-bio">
             I am a Full-Stack Developer focused on backend-heavy enterprise
             systems, integrations, and modernizing legacy platforms, with a
-            background in intelligence analysis and team leadership. After 6
+            background in intelligence analysis and team leadership. After 7
             years in data-focused roles, I transitioned into software
             engineering and now i am part of a team that builds enterprise
             content management systems used by thousands of users. I focus on
@@ -818,12 +888,12 @@
           </p>
           <div class="about-stats">
             <div>
-              <div class="stat-label">Based in</div>
-              <div class="stat-value">Tel Aviv, IL</div>
+              <div class="stat-label" data-i18n="stat-based-label">Based in</div>
+              <div class="stat-value" data-i18n="stat-based-value">Tel Aviv, IL</div>
             </div>
             <div>
-              <div class="stat-label">Status</div>
-              <div class="stat-value open">Open to work</div>
+              <div class="stat-label" data-i18n="stat-status-label">Status</div>
+              <div class="stat-value open" data-i18n="stat-status-value">Open to work</div>
             </div>
           </div>
         </div>
@@ -832,13 +902,13 @@
 
     <!-- ── Work ──────────────────────────────────── -->
     <section class="work" id="work">
-      <div class="section-tag">02 / Selected Work</div>
+      <div class="section-tag" data-i18n="section-work">02 / Selected Work</div>
 
       <div class="work-item reveal">
         <span class="work-num">001</span>
         <div class="work-info">
-          <span class="work-title">Enterprise Document Platform</span>
-          <span class="work-desc"
+          <span class="work-title" data-i18n="work1-title">Enterprise Document Platform</span>
+          <span class="work-desc" data-i18n="work1-desc"
             >Contributing to a high-scale internal platform used by thousands of
             employees for creating and managing sensitive documents. My role
             involves maintaining core legacy infrastructures while developing
@@ -858,8 +928,8 @@
       <div class="work-item reveal">
         <span class="work-num">002</span>
         <div class="work-info">
-          <span class="work-title">Desktop &amp; Web Integration</span>
-          <span class="work-desc"
+          <span class="work-title" data-i18n="work2-title">Desktop &amp; Web Integration</span>
+          <span class="work-desc" data-i18n="work2-desc"
             >Bridging the gap between web applications and Microsoft Office
             tools. I developed seamless integrations for Outlook and Word,
             allowing users to interact with complex enterprise data directly
@@ -879,8 +949,8 @@
       <div class="work-item reveal">
         <span class="work-num">003</span>
         <div class="work-info">
-          <span class="work-title">AI-Powered Data Retrieval Engine</span>
-          <span class="work-desc"
+          <span class="work-title" data-i18n="work3-title">AI-Powered Data Retrieval Engine</span>
+          <span class="work-desc" data-i18n="work3-desc"
             >Developed an intelligent data retrieval layer using the Model
             Context Protocol to bridge the gap between Large Language Models and
             complex enterprise databases. I engineered automated utilities for
@@ -901,85 +971,68 @@
 
     <!-- ── Stack ─────────────────────────────────── -->
     <section class="stack" id="stack">
-      <div class="section-tag">03 / Stack</div>
+      <div class="section-tag" data-i18n="section-stack">03 / Stack</div>
       <div class="stack-grid reveal">
         <div class="stack-cell">
-          <div class="cell-cat">Frontend</div>
-          <div class="cell-name">Angular (Basic)</div>
-          <div class="cell-desc">
-            Working with Angular in the context of enterprise integrations.
-          </div>
+          <div class="cell-cat" data-i18n="cell1-cat">Frontend</div>
+          <div class="cell-name" data-i18n="cell1-name">Angular (Basic)</div>
+          <div class="cell-desc" data-i18n="cell1-desc">Frontend development within enterprise integration contexts.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Server</div>
-          <div class="cell-name">.NET / Python</div>
-          <div class="cell-desc">
-            Handling server-side logic and API integrations.
-          </div>
+          <div class="cell-cat" data-i18n="cell2-cat">Server</div>
+          <div class="cell-name" data-i18n="cell2-name">.NET · Python · Java</div>
+          <div class="cell-desc" data-i18n="cell2-desc">Backend development, REST APIs, and server-side logic across enterprise systems.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Data</div>
-          <div class="cell-name">MSSQL / Mongo</div>
-          <div class="cell-desc">
-            Managing databases and building complex queries.
-          </div>
+          <div class="cell-cat" data-i18n="cell3-cat">Data</div>
+          <div class="cell-name" data-i18n="cell3-name">MSSQL · MongoDB</div>
+          <div class="cell-desc" data-i18n="cell3-desc">Database design, complex querying, and data modeling.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Office</div>
-          <div class="cell-name">Outlook / Word</div>
-          <div class="cell-desc">
-            Building add-ins and connecting them to our apps.
-          </div>
+          <div class="cell-cat" data-i18n="cell4-cat">Office</div>
+          <div class="cell-name" data-i18n="cell4-name">Office Add-ins</div>
+          <div class="cell-desc" data-i18n="cell4-desc">Building Outlook and Word add-ins that extend productivity tools into enterprise workflows.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">AI</div>
-          <div class="cell-name">Claude / MCP</div>
-          <div class="cell-desc">
-            Building AI-powered tools with Claude and Model Context Protocol.
-          </div>
+          <div class="cell-cat" data-i18n="cell5-cat">AI</div>
+          <div class="cell-name" data-i18n="cell5-name">LLM Integration</div>
+          <div class="cell-desc" data-i18n="cell5-desc">Integrating large language models into enterprise systems and workflows.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Infra</div>
-          <div class="cell-name">OpenShift / Helm</div>
-          <div class="cell-desc">
-            Deploying and monitoring applications in the cloud.
-          </div>
+          <div class="cell-cat" data-i18n="cell6-cat">Infra</div>
+          <div class="cell-name" data-i18n="cell6-name">OpenShift · Helm</div>
+          <div class="cell-desc" data-i18n="cell6-desc">Container orchestration and cloud-native application deployment.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Monitoring</div>
-          <div class="cell-name">Kafka / ELK</div>
-          <div class="cell-desc">
-            Familiar with event streaming and log analysis in production
-            environments.
-          </div>
+          <div class="cell-cat" data-i18n="cell7-cat">Monitoring</div>
+          <div class="cell-name" data-i18n="cell7-name">Kafka · ELK Stack</div>
+          <div class="cell-desc" data-i18n="cell7-desc">Familiar with event streaming and log-based observability in production environments.</div>
         </div>
         <div class="stack-cell">
-          <div class="cell-cat">Currently</div>
-          <div class="cell-name">Improving Skills</div>
-          <div class="cell-desc">
-            Exploring new ways to integrate AI into my workflow.
-          </div>
+          <div class="cell-cat" data-i18n="cell8-cat">Currently</div>
+          <div class="cell-name" data-i18n="cell8-name">Agentic AI</div>
+          <div class="cell-desc" data-i18n="cell8-desc">Exploring agentic architectures, tooling, and AI-native development patterns.</div>
         </div>
       </div>
     </section>
 
     <!-- ── Contact ────────────────────────────────── -->
     <section class="contact" id="contact">
-      <div class="section-tag">04 / Contact</div>
-      <div class="contact-headline reveal">Let's build<br />something.</div>
+      <div class="section-tag" data-i18n="section-contact">04 / Contact</div>
+      <div class="contact-headline reveal" data-i18n="contact-headline">Let's build<br />something.</div>
+      <p class="contact-sub reveal" data-i18n="contact-sub">Open to new roles, collaborations,<br />and interesting problems.</p>
       <a href="mailto:hello@hili.bio" class="contact-email reveal"
         >hello@hili.bio</a
       >
       <div class="contact-socials reveal">
-        <a href="https://github.com/HiliMor" target="_blank" class="social-link"
-          >GitHub</a
-        >
+        <a href="https://github.com/HiliMor" target="_blank" class="social-link">GitHub</a>
+        <a href="https://x.com/Hili_100" target="_blank" class="social-link">X</a>
       </div>
     </section>
 
     <!-- ── Footer ─────────────────────────────────── -->
     <footer>
-      <span class="footer-txt">© 2026 Hili Mor. All rights reserved.</span>
+      <span class="footer-txt" data-i18n="footer-txt">© 2026 Hili Mor. All rights reserved.</span>
     </footer>
 
     <script>
@@ -1112,6 +1165,94 @@
           if (target) target.scrollIntoView({ behavior: "smooth" });
         });
       });
+
+      /* ── i18n ───────────────────────────────────── */
+      const I18N = {
+        en: {
+          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-contact": "Contact",
+          "hero-badge": "Available for work",
+          "hero-desc": "Bridging legacy infrastructures<br />and modern AI-driven solutions.",
+          "section-about": "01 / About",
+          "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
+          "about-bio": "I am a Full-Stack Developer focused on backend-heavy enterprise systems, integrations, and modernizing legacy platforms, with a background in intelligence analysis and team leadership. After 7 years in data-focused roles, I transitioned into software engineering and now I am part of a team that builds enterprise content management systems used by thousands of users. I focus on developing data-driven tools and integrating modern technologies with legacy systems to create practical, scalable solutions.",
+          "stat-based-label": "Based in", "stat-based-value": "Tel Aviv, IL",
+          "stat-status-label": "Status", "stat-status-value": "Open to work",
+          "section-work": "02 / Selected Work",
+          "work1-title": "Enterprise Document Platform",
+          "work1-desc": "Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.",
+          "work2-title": "Desktop &amp; Web Integration",
+          "work2-desc": "Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.",
+          "work3-title": "AI-Powered Data Retrieval Engine",
+          "work3-desc": "Developed an intelligent data retrieval layer using the Model Context Protocol to bridge the gap between Large Language Models and complex enterprise databases. I engineered automated utilities for extracting unstructured data from legacy files, creating a seamless pipeline that transforms raw technical data into actionable, AI-accessible insights.",
+          "section-stack": "03 / Stack",
+          "cell1-cat": "Frontend", "cell1-name": "Angular (Basic)", "cell1-desc": "Frontend development within enterprise integration contexts.",
+          "cell2-cat": "Server", "cell2-name": ".NET · Python · Java", "cell2-desc": "Backend development, REST APIs, and server-side logic across enterprise systems.",
+          "cell3-cat": "Data", "cell3-name": "MSSQL · MongoDB", "cell3-desc": "Database design, complex querying, and data modeling.",
+          "cell4-cat": "Office", "cell4-name": "Office Add-ins", "cell4-desc": "Building Outlook and Word add-ins that extend productivity tools into enterprise workflows.",
+          "cell5-cat": "AI", "cell5-name": "LLM Integration", "cell5-desc": "Integrating large language models into enterprise systems and workflows.",
+          "cell6-cat": "Infra", "cell6-name": "OpenShift · Helm", "cell6-desc": "Container orchestration and cloud-native application deployment.",
+          "cell7-cat": "Monitoring", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "Familiar with event streaming and log-based observability in production environments.",
+          "cell8-cat": "Currently", "cell8-name": "Agentic AI", "cell8-desc": "Exploring agentic architectures, tooling, and AI-native development patterns.",
+          "section-contact": "04 / Contact",
+          "contact-headline": "Let's build<br />something.",
+          "contact-sub": "Open to new roles, collaborations,<br />and interesting problems.",
+          "footer-txt": "© 2026 Hili Mor. All rights reserved.",
+          "lang-btn": "HE"
+        },
+        he: {
+          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-contact": "יצירת קשר",
+          "hero-badge": "פנויה להזדמנויות",
+          "hero-desc": "מגשרת בין תשתיות ישנות<br />לפתרונות AI מודרניים.",
+          "section-about": "01 / אודות",
+          "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
+          "about-bio": "התחלתי בניתוח נתונים. שבע שנות מודיעין, כולל שנתיים ניהול צוות. עברתי לפיתוח תוכנה ומאז אני חלק מצוות שבונה מערכות ניהול תוכן ארגוניות בשימוש יומיומי של אלפי אנשים. מתמחה בחיבור בין תשתיות ישנות לפתרונות AI מודרניים, מאינטגרציות Office ועד כלים אוטומטיים לשליפת נתונים.",
+          "stat-based-label": "מיקום", "stat-based-value": "תל אביב",
+          "stat-status-label": "סטטוס", "stat-status-value": "פנויה לעבודה",
+          "section-work": "02 / עבודות נבחרות",
+          "work1-title": "פלטפורמת מסמכים ארגונית",
+          "work1-desc": "חלק מצוות הפיתוח של פלטפורמה פנים-ארגונית בסדר גודל גבוה, המשמשת אלפי עובדים ליצירה וניהול מסמכים רגישים. תפקידי כולל תחזוקת תשתיות ליבה ופיתוח פיצ׳רים חדשים לגרסה הבאה, עם דגש על שלמות נתונים ויציבות מערכת.",
+          "work2-title": "אינטגרציה Desktop ו-Web",
+          "work2-desc": "פיתוח אינטגרציות חלקות בין אפליקציות Web לכלי Office של מיקרוסופט. פיתחתי תוספים ל-Outlook ו-Word שמאפשרים למשתמשים לעבוד עם נתונים ארגוניים מורכבים ישירות מסביבת העבודה שלהם, ולייעל תהליכים ארגוניים משמעותית.",
+          "work3-title": "מנוע שליפת נתונים מבוסס AI",
+          "work3-desc": "פיתוח שכבת שליפת נתונים חכמה באמצעות Model Context Protocol, שמגשרת בין מודלי שפה גדולים למסדי נתונים ארגוניים מורכבים. פיתחתי כלים אוטומטיים לחילוץ נתונים לא-מובנים מקבצים ישנים, ויצרתי pipeline שהופך מידע גולמי למשהו שAI יכול לעבוד איתו.",
+          "section-stack": "03 / טכנולוגיות",
+          "cell1-cat": "Frontend", "cell1-name": "Angular (בסיסי)", "cell1-desc": "פיתוח Frontend בהקשר של אינטגרציות ארגוניות.",
+          "cell2-cat": "שרת", "cell2-name": ".NET · Python · Java", "cell2-desc": "פיתוח Backend, REST APIs ולוגיקת שרת במערכות ארגוניות.",
+          "cell3-cat": "נתונים", "cell3-name": "MSSQL · MongoDB", "cell3-desc": "עיצוב מסדי נתונים, שאילתות מורכבות ומידול נתונים.",
+          "cell4-cat": "Office", "cell4-name": "Office Add-ins", "cell4-desc": "פיתוח תוספים ל-Outlook ו-Word שמרחיבים כלי פרודקטיביות לתוך תהליכי עבודה ארגוניים.",
+          "cell5-cat": "AI", "cell5-name": "LLM Integration", "cell5-desc": "אינטגרציה של מודלי שפה גדולים למערכות ולתהליכי עבודה ארגוניים.",
+          "cell6-cat": "תשתית", "cell6-name": "OpenShift · Helm", "cell6-desc": "תזמור קונטיינרים ופריסה של אפליקציות cloud-native.",
+          "cell7-cat": "ניטור", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "היכרות עם event streaming ו-observability מבוסס לוגים בסביבות production.",
+          "cell8-cat": "כרגע", "cell8-name": "תמיד לומדת", "cell8-desc": "חוקרת ארכיטקטורות אגנטיות, כלים ודפוסי פיתוח AI-native.",
+          "section-contact": "04 / יצירת קשר",
+          "contact-headline": "בואו נבנה משהו.",
+          "contact-sub": "פתוחה לתפקידים חדשים, שיתופי פעולה,<br />ובעיות מעניינות.",
+          "footer-txt": "© 2026 Hili Mor. כל הזכויות שמורות.",
+          "lang-btn": "EN"
+        }
+      };
+
+      let currentLang = localStorage.getItem("lang") || "en";
+
+      function setLang(lang) {
+        const t = I18N[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+        document.documentElement.setAttribute("dir", lang === "he" ? "rtl" : "ltr");
+        document.documentElement.setAttribute("lang", lang);
+        document.getElementById("langToggle").textContent = t["lang-btn"];
+        localStorage.setItem("lang", lang);
+        currentLang = lang;
+      }
+
+      document.getElementById("langToggle").addEventListener("click", () => {
+        setLang(currentLang === "en" ? "he" : "en");
+      });
+
+      // Apply saved language on load
+      if (currentLang === "he") setLang("he");
     </script>
   </body>
 </html>
