@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>Hili — Bio</title>
+    <link rel="icon" type="image/png" href="avatar.png" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -604,6 +605,97 @@
         color: var(--ink);
       }
 
+      /* ── Projects ──────────────────────────────── */
+      .projects {
+        padding: 120px 44px;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid var(--border);
+        margin-top: 72px;
+      }
+      .project-item {
+        padding: 36px 32px;
+        border-left: 1px solid var(--border);
+        transition: background 0.25s;
+        display: flex;
+        flex-direction: column;
+      }
+      .project-item:first-child {
+        border-left: none;
+      }
+      .project-item:hover {
+        background: var(--blush);
+      }
+      .project-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .project-num,
+      .project-year {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+      .project-title {
+        font-size: clamp(17px, 1.6vw, 22px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 14px;
+        line-height: 1.2;
+      }
+      .project-desc {
+        font-family: "DM Mono", monospace;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+        flex: 1;
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 28px;
+      }
+      .project-tags span {
+        font-family: "DM Mono", monospace;
+        font-size: 9.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid var(--border);
+        padding: 4px 10px;
+        border-radius: 100px;
+        color: var(--muted);
+      }
+      .project-link {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--ink);
+        padding-bottom: 1px;
+        align-self: flex-start;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .project-link:hover {
+        color: var(--rose);
+        border-color: var(--rose);
+      }
+      html[dir="rtl"] .project-item {
+        border-left: none;
+        border-right: 1px solid var(--border);
+      }
+      html[dir="rtl"] .project-item:first-child {
+        border-right: none;
+      }
+
       /* ── Footer ────────────────────────────────── */
       footer {
         border-top: 1px solid var(--border);
@@ -695,6 +787,16 @@
         }
         .work-year {
           display: none;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-item {
+          border-left: none;
+          border-top: 1px solid var(--border);
+        }
+        .project-item:first-child {
+          border-top: none;
         }
       }
 
@@ -837,6 +939,7 @@
         <li><a href="#about" data-i18n="nav-about">About</a></li>
         <li><a href="#work" data-i18n="nav-work">Work</a></li>
         <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
+        <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
         <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
       </ul>
       <button class="lang-toggle" id="langToggle">HE</button>
@@ -951,12 +1054,10 @@
         <div class="work-info">
           <span class="work-title" data-i18n="work3-title">AI-Powered Data Retrieval Engine</span>
           <span class="work-desc" data-i18n="work3-desc"
-            >Developed an intelligent data retrieval layer using the Model
-            Context Protocol to bridge the gap between Large Language Models and
-            complex enterprise databases. I engineered automated utilities for
-            extracting unstructured data from legacy files, creating a seamless
-            pipeline that transforms raw technical data into actionable,
-            AI-accessible insights.</span
+            >Applied MCP in a production enterprise environment to connect LLMs
+            to complex internal databases. Built automated utilities for
+            extracting unstructured data from legacy files, creating a pipeline
+            that makes raw enterprise data accessible to AI systems.</span
           >
         </div>
         <div class="work-chips">
@@ -1016,9 +1117,56 @@
       </div>
     </section>
 
+    <!-- ── Projects ─────────────────────────────── -->
+    <section class="projects" id="projects">
+      <div class="section-tag" data-i18n="section-projects">04 / Personal Projects</div>
+      <div class="projects-grid">
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">001</span>
+            <span class="project-year">2026</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj1-title">Enterprise MCP Toolkit</h3>
+          <p class="project-desc" data-i18n="proj1-desc">An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.</p>
+          <div class="project-tags">
+            <span>Python</span><span>MCP</span><span>SQLAlchemy</span><span>SQLite</span><span>MSSQL</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/enterprise-mcp-toolkit" target="_blank">GitHub ↗</a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">002</span>
+            <span class="project-year">2026</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj2-title">Movie Recommender System</h3>
+          <p class="project-desc" data-i18n="proj2-desc">A recommendation engine built from scratch using three methods: content-based filtering, collaborative filtering with SVD on 25M ratings, and semantic search with HuggingFace embeddings. Frontend enriched with TMDB API data.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Flask</span><span>SVD</span><span>HuggingFace</span><span>TMDB API</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank">GitHub ↗</a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">003</span>
+            <span class="project-year">2025</span>
+          </div>
+          <h3 class="project-title" data-i18n="proj3-title">Stroke Prediction — Data Mining</h3>
+          <p class="project-desc" data-i18n="proj3-desc">Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>WEKA</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank">GitHub ↗</a>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── Contact ────────────────────────────────── -->
     <section class="contact" id="contact">
-      <div class="section-tag" data-i18n="section-contact">04 / Contact</div>
+      <div class="section-tag" data-i18n="section-contact">05 / Contact</div>
       <div class="contact-headline reveal" data-i18n="contact-headline">Let's build<br />something.</div>
       <p class="contact-sub reveal" data-i18n="contact-sub">Open to new roles, collaborations,<br />and interesting problems.</p>
       <a href="mailto:hello@hili.bio" class="contact-email reveal"
@@ -1169,7 +1317,7 @@
       /* ── i18n ───────────────────────────────────── */
       const I18N = {
         en: {
-          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-contact": "Contact",
+          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-projects": "Projects", "nav-contact": "Contact",
           "hero-badge": "Available for work",
           "hero-desc": "Bridging legacy infrastructures<br />and modern AI-driven solutions.",
           "section-about": "01 / About",
@@ -1183,7 +1331,7 @@
           "work2-title": "Desktop &amp; Web Integration",
           "work2-desc": "Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.",
           "work3-title": "AI-Powered Data Retrieval Engine",
-          "work3-desc": "Developed an intelligent data retrieval layer using the Model Context Protocol to bridge the gap between Large Language Models and complex enterprise databases. I engineered automated utilities for extracting unstructured data from legacy files, creating a seamless pipeline that transforms raw technical data into actionable, AI-accessible insights.",
+          "work3-desc": "Applied MCP in a production enterprise environment to connect LLMs to complex internal databases. Built automated utilities for extracting unstructured data from legacy files, creating a pipeline that makes raw enterprise data accessible to AI systems.",
           "section-stack": "03 / Stack",
           "cell1-cat": "Frontend", "cell1-name": "Angular (Basic)", "cell1-desc": "Frontend development within enterprise integration contexts.",
           "cell2-cat": "Server", "cell2-name": ".NET · Python · Java", "cell2-desc": "Backend development, REST APIs, and server-side logic across enterprise systems.",
@@ -1193,14 +1341,21 @@
           "cell6-cat": "Infra", "cell6-name": "OpenShift · Helm", "cell6-desc": "Container orchestration and cloud-native application deployment.",
           "cell7-cat": "Monitoring", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "Familiar with event streaming and log-based observability in production environments.",
           "cell8-cat": "Currently", "cell8-name": "Always Learning", "cell8-desc": "Exploring agentic architectures, tooling, and AI-native development patterns.",
-          "section-contact": "04 / Contact",
+          "section-projects": "04 / Personal Projects",
+          "proj1-title": "Enterprise MCP Toolkit",
+          "proj1-desc": "An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.",
+          "proj2-title": "Movie Recommender System",
+          "proj2-desc": "A recommendation engine built from scratch using three methods: content-based filtering, collaborative filtering with SVD on 25M ratings, and semantic search with HuggingFace embeddings. Frontend enriched with TMDB API data.",
+          "proj3-title": "Stroke Prediction — Data Mining",
+          "proj3-desc": "Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.",
+          "section-contact": "05 / Contact",
           "contact-headline": "Let's build<br />something.",
           "contact-sub": "Open to new roles, collaborations,<br />and interesting problems.",
           "footer-txt": "© 2026 Hili Mor. All rights reserved.",
           "lang-btn": "HE"
         },
         he: {
-          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-contact": "יצירת קשר",
+          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-projects": "פרויקטים", "nav-contact": "יצירת קשר",
           "hero-badge": "פנויה להזדמנויות",
           "hero-desc": "מגשרת בין תשתיות ישנות<br />לפתרונות AI מודרניים.",
           "section-about": "01 / אודות",
@@ -1214,7 +1369,7 @@
           "work2-title": "אינטגרציה Desktop ו-Web",
           "work2-desc": "פיתוח אינטגרציות חלקות בין אפליקציות Web לכלי Office של מיקרוסופט. פיתחתי תוספים ל-Outlook ו-Word שמאפשרים למשתמשים לעבוד עם נתונים ארגוניים מורכבים ישירות מסביבת העבודה שלהם, ולייעל תהליכים ארגוניים משמעותית.",
           "work3-title": "מנוע שליפת נתונים מבוסס AI",
-          "work3-desc": "פיתוח שכבת שליפת נתונים חכמה באמצעות Model Context Protocol, שמגשרת בין מודלי שפה גדולים למסדי נתונים ארגוניים מורכבים. פיתחתי כלים אוטומטיים לחילוץ נתונים לא-מובנים מקבצים ישנים, ויצרתי pipeline שהופך מידע גולמי למשהו שAI יכול לעבוד איתו.",
+          "work3-desc": "יישום MCP בסביבת production ארגונית לחיבור מודלי שפה למסדי נתונים פנים-ארגוניים. פיתוח כלים אוטומטיים לחילוץ נתונים לא-מובנים מקבצים ישנים, ויצירת pipeline שהופך מידע גולמי לנגיש למערכות AI.",
           "section-stack": "03 / טכנולוגיות",
           "cell1-cat": "Frontend", "cell1-name": "Angular (בסיסי)", "cell1-desc": "פיתוח Frontend בהקשר של אינטגרציות ארגוניות.",
           "cell2-cat": "שרת", "cell2-name": ".NET · Python · Java", "cell2-desc": "פיתוח Backend, REST APIs ולוגיקת שרת במערכות ארגוניות.",
@@ -1224,7 +1379,14 @@
           "cell6-cat": "תשתית", "cell6-name": "OpenShift · Helm", "cell6-desc": "תזמור קונטיינרים ופריסה של אפליקציות cloud-native.",
           "cell7-cat": "ניטור", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "היכרות עם event streaming ו-observability מבוסס לוגים בסביבות production.",
           "cell8-cat": "כרגע", "cell8-name": "Always Learning", "cell8-desc": "חוקרת ארכיטקטורות אגנטיות, כלים ודפוסי פיתוח AI-native.",
-          "section-contact": "04 / יצירת קשר",
+          "section-projects": "04 / פרויקטים אישיים",
+          "proj1-title": "Enterprise MCP Toolkit",
+          "proj1-desc": "כלי open source שמכליל את הגישה מ-production לתוך toolkit שניתן לשימוש חוזר. כולל schema discovery אוטומטי, חסימת queries הרסניים וסיכום תוצאות — תשתית שכל MCP server ארגוני יכול להשתמש בה.",
+          "proj2-title": "Movie Recommender System",
+          "proj2-desc": "מנוע המלצות מ-scratch עם שלוש שיטות: content-based filtering, collaborative filtering עם SVD על 25M ratings, וחיפוש סמנטי עם HuggingFace embeddings. Frontend עם enrichment מ-TMDB API.",
+          "proj3-title": "Stroke Prediction — Data Mining",
+          "proj3-desc": "חיזוי סיכון לשבץ מוחי על בסיס מאפיינים רפואיים ודמוגרפיים. השוואה בין מספר שיטות ML בפייתון ו-WEKA, כולל ניתוח תוצאות ומסקנות.",
+          "section-contact": "05 / יצירת קשר",
           "contact-headline": "בואו נבנה משהו.",
           "contact-sub": "פתוחה לתפקידים חדשים, שיתופי פעולה,<br />ובעיות מעניינות.",
           "footer-txt": "© 2026 Hili Mor. כל הזכויות שמורות.",
