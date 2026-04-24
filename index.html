@@ -770,6 +770,13 @@
         border-right: none;
       }
 
+      /* ── Magnetic ───────────────────────────────── */
+      .magnetic {
+        display: inline-block;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+
       /* ── Footer ────────────────────────────────── */
       footer {
         border-top: 1px solid var(--border);
@@ -1010,10 +1017,10 @@
     <nav>
       <a href="#" class="nav-logo">HILI — BIO</a>
       <ul class="nav-links">
-        <li><a href="#about" data-i18n="nav-about">About</a></li>
-        <li><a href="#work" data-i18n="nav-work">Work</a></li>
-        <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
-        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav-about" class="magnetic">About</a></li>
+        <li><a href="#work" data-i18n="nav-work" class="magnetic">Work</a></li>
+        <li><a href="#stack" data-i18n="nav-stack" class="magnetic">Stack</a></li>
+        <li><a href="#contact" data-i18n="nav-contact" class="magnetic">Contact</a></li>
       </ul>
       <button class="lang-toggle" id="langToggle">HE</button>
     </nav>
@@ -1080,9 +1087,9 @@
     <section class="work" id="work">
       <div class="section-tag" data-i18n="section-work">02 / Work</div>
       <div class="work-filters">
-        <button class="filter-btn active" data-filter="all" data-i18n="filter-all">All</button>
-        <button class="filter-btn" data-filter="professional" data-i18n="filter-professional">Professional</button>
-        <button class="filter-btn" data-filter="personal" data-i18n="filter-personal">Personal</button>
+        <button class="filter-btn magnetic active" data-filter="all" data-i18n="filter-all">All</button>
+        <button class="filter-btn magnetic" data-filter="professional" data-i18n="filter-professional">Professional</button>
+        <button class="filter-btn magnetic" data-filter="personal" data-i18n="filter-personal">Personal</button>
       </div>
       <div class="projects-grid">
 
@@ -1239,7 +1246,7 @@
       <div class="section-tag" data-i18n="section-contact">04 / Contact</div>
       <div class="contact-headline reveal" data-i18n="contact-headline">Let's build<br />something.</div>
       <p class="contact-sub reveal" data-i18n="contact-sub">Open to new roles, collaborations,<br />and interesting problems.</p>
-      <a href="mailto:hello@hili.bio" class="contact-email reveal"
+      <a href="mailto:hello@hili.bio" class="contact-email reveal magnetic"
         >hello@hili.bio</a
       >
       <div class="contact-socials reveal">
@@ -1387,7 +1394,22 @@
         });
       });
 
-      /* ── Nav smooth scroll (no URL change) ─────── */
+      /* ── Magnetic elements ──────────────────────── */
+      document.querySelectorAll(".magnetic").forEach((el) => {
+        el.addEventListener("mousemove", (e) => {
+          const rect = el.getBoundingClientRect();
+          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.35;
+          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.35;
+          el.style.transition = "transform 0.1s";
+          el.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+          el.style.transform = "translate(0, 0)";
+        });
+      });
+
+/* ── Nav smooth scroll (no URL change) ─────── */
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", (e) => {
           e.preventDefault();
