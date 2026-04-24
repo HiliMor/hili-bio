@@ -606,7 +606,7 @@
       }
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 0;
         border: 1px solid var(--border);
         margin-top: 72px;
@@ -618,8 +618,11 @@
         display: flex;
         flex-direction: column;
       }
-      .project-item:first-child {
+      .project-item:nth-child(odd) {
         border-left: none;
+      }
+      .project-item:nth-child(n+3) {
+        border-top: 1px solid var(--border);
       }
       .project-item:hover {
         background: var(--blush);
@@ -683,11 +686,87 @@
         color: var(--rose);
         border-color: var(--rose);
       }
+      .item-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 100px;
+        align-self: flex-start;
+        margin-bottom: 14px;
+      }
+      .item-badge.professional {
+        background: var(--ink);
+        color: var(--cream);
+      }
+      .item-badge.personal {
+        background: var(--rose);
+        color: var(--cream);
+      }
+      .project-item.featured {
+        grid-column: span 2;
+        flex-direction: row;
+        gap: 40px;
+        align-items: flex-start;
+      }
+      .project-item.featured .project-preview {
+        width: 52%;
+        flex-shrink: 0;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        display: block;
+      }
+      .project-item.featured .project-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      @media (max-width: 768px) {
+        .project-item.featured {
+          grid-column: span 1;
+          flex-direction: column;
+        }
+        .project-item.featured .project-preview {
+          width: 100%;
+        }
+      }
+      .work-filters {
+        display: flex;
+        gap: 10px;
+        margin-top: 48px;
+        margin-bottom: 0;
+      }
+      .filter-btn {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 7px 18px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--muted);
+        cursor: none;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .filter-btn:hover {
+        color: var(--ink);
+        border-color: rgba(28,20,24,0.3);
+      }
+      .filter-btn.active {
+        background: var(--ink);
+        color: var(--cream);
+        border-color: var(--ink);
+      }
+      .project-item.hidden {
+        display: none;
+      }
       html[dir="rtl"] .project-item {
         border-left: none;
         border-right: 1px solid var(--border);
       }
-      html[dir="rtl"] .project-item:first-child {
+      html[dir="rtl"] .project-item:nth-child(odd) {
         border-right: none;
       }
 
@@ -934,7 +1013,6 @@
         <li><a href="#about" data-i18n="nav-about">About</a></li>
         <li><a href="#work" data-i18n="nav-work">Work</a></li>
         <li><a href="#stack" data-i18n="nav-stack">Stack</a></li>
-        <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
         <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
       </ul>
       <button class="lang-toggle" id="langToggle">HE</button>
@@ -1000,68 +1078,112 @@
 
     <!-- ── Work ──────────────────────────────────── -->
     <section class="work" id="work">
-      <div class="section-tag" data-i18n="section-work">02 / Selected Work</div>
-
-      <div class="work-item reveal">
-        <span class="work-num">001</span>
-        <div class="work-info">
-          <span class="work-title" data-i18n="work1-title">Enterprise Document Platform</span>
-          <span class="work-desc" data-i18n="work1-desc"
-            >Contributing to a high-scale internal platform used by thousands of
-            employees for creating and managing sensitive documents. My role
-            involves maintaining core legacy infrastructures while developing
-            new features for the next-generation version, ensuring data
-            integrity and system stability.</span
-          >
-        </div>
-        <div class="work-chips">
-          <span class="chip">.NET</span>
-          <span class="chip">Angular</span>
-          <span class="chip">MSSQL</span>
-          <span class="chip">OpenShift</span>
-        </div>
-        <span class="work-year">2025—2026</span>
+      <div class="section-tag" data-i18n="section-work">02 / Work</div>
+      <div class="work-filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter-all">All</button>
+        <button class="filter-btn" data-filter="professional" data-i18n="filter-professional">Professional</button>
+        <button class="filter-btn" data-filter="personal" data-i18n="filter-personal">Personal</button>
       </div>
+      <div class="projects-grid">
 
-      <div class="work-item reveal">
-        <span class="work-num">002</span>
-        <div class="work-info">
-          <span class="work-title" data-i18n="work2-title">Desktop &amp; Web Integration</span>
-          <span class="work-desc" data-i18n="work2-desc"
-            >Bridging the gap between web applications and Microsoft Office
-            tools. I developed seamless integrations for Outlook and Word,
-            allowing users to interact with complex enterprise data directly
-            within their productivity environment, significantly streamlining
-            organizational workflows.</span
-          >
+        <div class="project-item featured reveal">
+          <img class="project-preview" src="segs-demo/segs-website.gif" alt="SEGS EZ Raider booking platform demo" loading="lazy" />
+          <div class="project-content">
+            <div class="project-top">
+              <span class="project-num">001</span>
+              <span class="project-year">2025</span>
+            </div>
+            <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
+            <h3 class="project-title" data-i18n="proj4-title">SEGS — Tour Booking Platform</h3>
+            <p class="project-desc" data-i18n="proj4-desc">A full-stack booking and management platform built for a real EZ Raider tour business in Caesarea, Israel. Replaced a fully manual process with a bilingual (Hebrew/English) system serving customers, guides, and admins — live in production.</p>
+            <div class="project-tags">
+              <span>React</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>Tailwind</span>
+            </div>
+            <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank">GitHub ↗</a>
+          </div>
         </div>
-        <div class="work-chips">
-          <span class="chip">VSTO</span>
-          <span class="chip">WebView2</span>
-          <span class="chip">.NET</span>
-          <span class="chip">Angular</span>
-        </div>
-        <span class="work-year">2025—2026</span>
-      </div>
 
-      <div class="work-item reveal">
-        <span class="work-num">003</span>
-        <div class="work-info">
-          <span class="work-title" data-i18n="work3-title">AI-Powered Data Retrieval Engine</span>
-          <span class="work-desc" data-i18n="work3-desc"
-            >Applied MCP in a production enterprise environment to connect LLMs
-            to complex internal databases. Built automated utilities for
-            extracting unstructured data from legacy files, creating a pipeline
-            that makes raw enterprise data accessible to AI systems.</span
-          >
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">002</span>
+            <span class="project-year">2025—2026</span>
+          </div>
+          <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
+          <h3 class="project-title" data-i18n="work1-title">Enterprise Document Platform</h3>
+          <p class="project-desc" data-i18n="work1-desc">Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.</p>
+          <div class="project-tags">
+            <span>.NET</span><span>Angular</span><span>MSSQL</span><span>OpenShift</span>
+          </div>
         </div>
-        <div class="work-chips">
-          <span class="chip">Python</span>
-          <span class="chip">MCP</span>
-          <span class="chip">MSSQL</span>
-          <span class="chip">AI APIs</span>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">003</span>
+            <span class="project-year">2025—2026</span>
+          </div>
+          <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
+          <h3 class="project-title" data-i18n="work2-title">Desktop &amp; Web Integration</h3>
+          <p class="project-desc" data-i18n="work2-desc">Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.</p>
+          <div class="project-tags">
+            <span>VSTO</span><span>WebView2</span><span>.NET</span><span>Angular</span>
+          </div>
         </div>
-        <span class="work-year">2026</span>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">004</span>
+            <span class="project-year">2026</span>
+          </div>
+          <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
+          <h3 class="project-title" data-i18n="work3-title">AI-Powered Data Retrieval Engine</h3>
+          <p class="project-desc" data-i18n="work3-desc">Applied MCP in a production enterprise environment to connect LLMs to complex internal databases. Built automated utilities for extracting unstructured data from legacy files, creating a pipeline that makes raw enterprise data accessible to AI systems.</p>
+          <div class="project-tags">
+            <span>Python</span><span>MCP</span><span>MSSQL</span><span>AI APIs</span>
+          </div>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">005</span>
+            <span class="project-year">2026</span>
+          </div>
+          <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
+          <h3 class="project-title" data-i18n="proj1-title">Enterprise MCP Toolkit</h3>
+          <p class="project-desc" data-i18n="proj1-desc">An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.</p>
+          <div class="project-tags">
+            <span>Python</span><span>MCP</span><span>SQLAlchemy</span><span>SQLite</span><span>MSSQL</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/enterprise-mcp-toolkit" target="_blank">GitHub ↗</a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">006</span>
+            <span class="project-year">2026</span>
+          </div>
+          <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
+          <h3 class="project-title" data-i18n="proj2-title">Movie Recommender System</h3>
+          <p class="project-desc" data-i18n="proj2-desc">A recommendation engine built from scratch using three methods: content-based filtering, collaborative filtering with SVD on 25M ratings, and semantic search with HuggingFace embeddings. Frontend enriched with TMDB API data.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Flask</span><span>SVD</span><span>HuggingFace</span><span>TMDB API</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank">GitHub ↗</a>
+        </div>
+
+        <div class="project-item reveal">
+          <div class="project-top">
+            <span class="project-num">007</span>
+            <span class="project-year">2025</span>
+          </div>
+          <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
+          <h3 class="project-title" data-i18n="proj3-title">Stroke Prediction — Data Mining</h3>
+          <p class="project-desc" data-i18n="proj3-desc">Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.</p>
+          <div class="project-tags">
+            <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>WEKA</span>
+          </div>
+          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank">GitHub ↗</a>
+        </div>
+
       </div>
     </section>
 
@@ -1112,56 +1234,9 @@
       </div>
     </section>
 
-    <!-- ── Projects ─────────────────────────────── -->
-    <section class="projects" id="projects">
-      <div class="section-tag" data-i18n="section-projects">04 / Personal Projects</div>
-      <div class="projects-grid">
-
-        <div class="project-item reveal">
-          <div class="project-top">
-            <span class="project-num">001</span>
-            <span class="project-year">2026</span>
-          </div>
-          <h3 class="project-title" data-i18n="proj1-title">Enterprise MCP Toolkit</h3>
-          <p class="project-desc" data-i18n="proj1-desc">An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.</p>
-          <div class="project-tags">
-            <span>Python</span><span>MCP</span><span>SQLAlchemy</span><span>SQLite</span><span>MSSQL</span>
-          </div>
-          <a class="project-link" href="https://github.com/HiliMor/enterprise-mcp-toolkit" target="_blank">GitHub ↗</a>
-        </div>
-
-        <div class="project-item reveal">
-          <div class="project-top">
-            <span class="project-num">002</span>
-            <span class="project-year">2026</span>
-          </div>
-          <h3 class="project-title" data-i18n="proj2-title">Movie Recommender System</h3>
-          <p class="project-desc" data-i18n="proj2-desc">A recommendation engine built from scratch using three methods: content-based filtering, collaborative filtering with SVD on 25M ratings, and semantic search with HuggingFace embeddings. Frontend enriched with TMDB API data.</p>
-          <div class="project-tags">
-            <span>Python</span><span>Flask</span><span>SVD</span><span>HuggingFace</span><span>TMDB API</span>
-          </div>
-          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank">GitHub ↗</a>
-        </div>
-
-        <div class="project-item reveal">
-          <div class="project-top">
-            <span class="project-num">003</span>
-            <span class="project-year">2025</span>
-          </div>
-          <h3 class="project-title" data-i18n="proj3-title">Stroke Prediction — Data Mining</h3>
-          <p class="project-desc" data-i18n="proj3-desc">Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.</p>
-          <div class="project-tags">
-            <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>WEKA</span>
-          </div>
-          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank">GitHub ↗</a>
-        </div>
-
-      </div>
-    </section>
-
     <!-- ── Contact ────────────────────────────────── -->
     <section class="contact" id="contact">
-      <div class="section-tag" data-i18n="section-contact">05 / Contact</div>
+      <div class="section-tag" data-i18n="section-contact">04 / Contact</div>
       <div class="contact-headline reveal" data-i18n="contact-headline">Let's build<br />something.</div>
       <p class="contact-sub reveal" data-i18n="contact-sub">Open to new roles, collaborations,<br />and interesting problems.</p>
       <a href="mailto:hello@hili.bio" class="contact-email reveal"
@@ -1202,7 +1277,7 @@
         requestAnimationFrame(loopRing);
       })();
 
-      document.querySelectorAll("a, button, .work-item").forEach((el) => {
+      document.querySelectorAll("a, button, .project-item").forEach((el) => {
         el.addEventListener("mouseenter", () =>
           document.body.classList.add("hovered"),
         );
@@ -1295,9 +1370,21 @@
         revealObs.observe(el);
       });
 
-      /* ── Work item stagger ──────────────────────── */
-      document.querySelectorAll(".work-item").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.07}s`;
+      /* ── Work filter tabs ───────────────────────── */
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          document.querySelectorAll(".project-item").forEach((item) => {
+            const badge = item.querySelector(".item-badge");
+            if (filter === "all" || badge.classList.contains(filter)) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+        });
       });
 
       /* ── Nav smooth scroll (no URL change) ─────── */
@@ -1312,7 +1399,7 @@
       /* ── i18n ───────────────────────────────────── */
       const I18N = {
         en: {
-          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-projects": "Projects", "nav-contact": "Contact",
+          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-contact": "Contact",
           "hero-badge": "Available for work",
           "hero-desc": "Bridging legacy infrastructures<br />and modern AI-driven solutions.",
           "section-about": "01 / About",
@@ -1320,7 +1407,9 @@
           "about-bio": "I am a Full-Stack Developer focused on backend-heavy enterprise systems, integrations, and modernizing legacy platforms, with a background in intelligence analysis and team leadership. After 7 years in data-focused roles, I transitioned into software engineering and now I am part of a team that builds enterprise content management systems used by thousands of users. I focus on developing data-driven tools and integrating modern technologies with legacy systems to create practical, scalable solutions.",
           "stat-based-label": "Based in", "stat-based-value": "Tel Aviv, IL",
           "stat-status-label": "Status", "stat-status-value": "Open to work",
-          "section-work": "02 / Selected Work",
+          "section-work": "02 / Work",
+          "badge-professional": "Professional", "badge-personal": "Personal",
+          "filter-all": "All", "filter-professional": "Professional", "filter-personal": "Personal",
           "work1-title": "Enterprise Document Platform",
           "work1-desc": "Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.",
           "work2-title": "Desktop &amp; Web Integration",
@@ -1336,21 +1425,22 @@
           "cell6-cat": "Infra", "cell6-name": "OpenShift · Helm", "cell6-desc": "Container orchestration and cloud-native application deployment.",
           "cell7-cat": "Monitoring", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "Familiar with event streaming and log-based observability in production environments.",
           "cell8-cat": "Currently", "cell8-name": "Always Learning", "cell8-desc": "Exploring agentic architectures, tooling, and AI-native development patterns.",
-          "section-projects": "04 / Personal Projects",
           "proj1-title": "Enterprise MCP Toolkit",
           "proj1-desc": "An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.",
           "proj2-title": "Movie Recommender System",
           "proj2-desc": "A recommendation engine built from scratch using three methods: content-based filtering, collaborative filtering with SVD on 25M ratings, and semantic search with HuggingFace embeddings. Frontend enriched with TMDB API data.",
           "proj3-title": "Stroke Prediction — Data Mining",
           "proj3-desc": "Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.",
-          "section-contact": "05 / Contact",
+          "proj4-title": "SEGS — Tour Booking Platform",
+          "proj4-desc": "A full-stack booking and management platform built for a real EZ Raider tour business in Caesarea, Israel. Replaced a fully manual process with a bilingual (Hebrew/English) system serving customers, guides, and admins — live in production.",
+          "section-contact": "04 / Contact",
           "contact-headline": "Let's build<br />something.",
           "contact-sub": "Open to new roles, collaborations,<br />and interesting problems.",
           "footer-txt": "© 2026 Hili Mor. All rights reserved.",
           "lang-btn": "HE"
         },
         he: {
-          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-projects": "פרויקטים", "nav-contact": "יצירת קשר",
+          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-contact": "יצירת קשר",
           "hero-badge": "פנויה להזדמנויות",
           "hero-desc": "מגשרת בין תשתיות ישנות<br />לפתרונות AI מודרניים.",
           "section-about": "01 / אודות",
@@ -1358,7 +1448,9 @@
           "about-bio": "התחלתי בניתוח נתונים. שבע שנות מודיעין, כולל שנתיים ניהול צוות. עברתי לפיתוח תוכנה ומאז אני חלק מצוות שבונה מערכות ניהול תוכן ארגוניות בשימוש יומיומי של אלפי אנשים. מתמחה בחיבור בין תשתיות ישנות לפתרונות AI מודרניים, מאינטגרציות Office ועד כלים אוטומטיים לשליפת נתונים.",
           "stat-based-label": "מיקום", "stat-based-value": "תל אביב",
           "stat-status-label": "סטטוס", "stat-status-value": "פנויה לעבודה",
-          "section-work": "02 / עבודות נבחרות",
+          "section-work": "02 / עבודות",
+          "badge-professional": "מקצועי", "badge-personal": "אישי",
+          "filter-all": "הכל", "filter-professional": "מקצועי", "filter-personal": "אישי",
           "work1-title": "פלטפורמת מסמכים ארגונית",
           "work1-desc": "חלק מצוות הפיתוח של פלטפורמה פנים-ארגונית בסדר גודל גבוה, המשמשת אלפי עובדים ליצירה וניהול מסמכים רגישים. תפקידי כולל תחזוקת תשתיות ליבה ופיתוח פיצ׳רים חדשים לגרסה הבאה, עם דגש על שלמות נתונים ויציבות מערכת.",
           "work2-title": "אינטגרציה Desktop ו-Web",
@@ -1374,14 +1466,15 @@
           "cell6-cat": "תשתית", "cell6-name": "OpenShift · Helm", "cell6-desc": "תזמור קונטיינרים ופריסה של אפליקציות cloud-native.",
           "cell7-cat": "ניטור", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "היכרות עם event streaming ו-observability מבוסס לוגים בסביבות production.",
           "cell8-cat": "כרגע", "cell8-name": "Always Learning", "cell8-desc": "חוקרת ארכיטקטורות אגנטיות, כלים ודפוסי פיתוח AI-native.",
-          "section-projects": "04 / פרויקטים אישיים",
           "proj1-title": "Enterprise MCP Toolkit",
           "proj1-desc": "כלי open source שמכליל את הגישה מ-production לתוך toolkit שניתן לשימוש חוזר. כולל schema discovery אוטומטי, חסימת queries הרסניים וסיכום תוצאות — תשתית שכל MCP server ארגוני יכול להשתמש בה.",
           "proj2-title": "Movie Recommender System",
           "proj2-desc": "מנוע המלצות מ-scratch עם שלוש שיטות: content-based filtering, collaborative filtering עם SVD על 25M ratings, וחיפוש סמנטי עם HuggingFace embeddings. Frontend עם enrichment מ-TMDB API.",
           "proj3-title": "Stroke Prediction — Data Mining",
           "proj3-desc": "חיזוי סיכון לשבץ מוחי על בסיס מאפיינים רפואיים ודמוגרפיים. השוואה בין מספר שיטות ML בפייתון ו-WEKA, כולל ניתוח תוצאות ומסקנות.",
-          "section-contact": "05 / יצירת קשר",
+          "proj4-title": "SEGS — פלטפורמת הזמנות טיולים",
+          "proj4-desc": "פלטפורמה מלאה להזמנות וניהול שנבנתה עבור עסק אמיתי בקיסריה. החליפה תהליך ידני לחלוטין במערכת דו-לשונית (עברית/אנגלית) המשרתת לקוחות, מדריכים ומנהלים — בשימוש חי בפרודקשן.",
+          "section-contact": "04 / יצירת קשר",
           "contact-headline": "בואו נבנה משהו.",
           "contact-sub": "פתוחה לתפקידים חדשים, שיתופי פעולה,<br />ובעיות מעניינות.",
           "footer-txt": "© 2026 Hili Mor. כל הזכויות שמורות.",
