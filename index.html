@@ -143,6 +143,28 @@
       .lang-toggle:hover {
         opacity: 0.5;
       }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nostalgic-btn {
+        background: none;
+        border: 1px solid rgba(255,255,255,0.55);
+        color: #fff;
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 11px;
+        cursor: none;
+        text-decoration: none;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+      }
+      .nostalgic-btn:hover {
+        opacity: 0.5;
+      }
       .nav-logo {
         font-family: "DM Mono", monospace;
         font-size: 12px;
@@ -1022,7 +1044,10 @@
         <li><a href="#stack" data-i18n="nav-stack" class="magnetic">Stack</a></li>
         <li><a href="#contact" data-i18n="nav-contact" class="magnetic">Contact</a></li>
       </ul>
-      <button class="lang-toggle" id="langToggle">HE</button>
+      <div class="nav-right">
+        <a href="https://xp.hili.bio" target="_blank" class="nostalgic-btn magnetic">🖥 Go Nostalgic!</a>
+        <button class="lang-toggle" id="langToggle">HE</button>
+      </div>
     </nav>
 
     <!-- ── Hero ──────────────────────────────────── -->
