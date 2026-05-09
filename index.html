@@ -522,41 +522,33 @@
         color: var(--cream);
         padding: 120px 44px;
       }
-      .stack-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+      .stack-intro {
+        font-family: "DM Mono", monospace;
+        font-size: 13px;
+        line-height: 1.7;
+        opacity: 0.45;
+        max-width: 480px;
+        margin-bottom: 48px;
+      }
+      .stack-tools {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         border: 1px solid rgba(255, 220, 210, 0.07);
         gap: 1px;
         background: rgba(255, 220, 210, 0.07);
-        margin-top: 0;
       }
-      .stack-cell {
+      .stack-tool {
         background: var(--ink);
-        padding: 30px 26px 34px;
-        transition: background 0.25s;
-      }
-      .stack-cell:hover {
-        background: #2a1e24;
-      }
-      .cell-cat {
-        font-family: "DM Mono", monospace;
-        font-size: 9px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        opacity: 0.35;
-        margin-bottom: 14px;
-      }
-      .cell-name {
-        font-size: 20px;
+        font-size: clamp(18px, 1.8vw, 26px);
         font-weight: 700;
-        margin-bottom: 10px;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
+        padding: 32px 28px;
+        transition: background 0.25s;
+        flex: 0 0 calc(33.333% - 1px);
       }
-      .cell-desc {
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-        line-height: 1.65;
-        opacity: 0.38;
+      .stack-tool:hover {
+        background: #2a1e24;
       }
 
       /* ── Contact ───────────────────────────────── */
@@ -839,7 +831,7 @@
       html[dir="rtl"] .about-bio,
       html[dir="rtl"] .hero-desc p,
       html[dir="rtl"] .work-desc,
-      html[dir="rtl"] .cell-desc,
+      html[dir="rtl"] .stack-intro,
       html[dir="rtl"] .stat-label,
       html[dir="rtl"] .stat-value,
       html[dir="rtl"] .section-tag,
@@ -993,8 +985,8 @@
         .stack {
           padding: 72px 24px;
         }
-        .stack-grid {
-          grid-template-columns: repeat(2, 1fr);
+        .stack-tools .stack-tool {
+          flex: 0 0 calc(33.333% - 1px);
         }
         .contact {
           padding: 72px 24px 80px;
@@ -1021,9 +1013,6 @@
         }
         .hero-name {
           font-size: clamp(72px, 20vw, 88px);
-        }
-        .stack-grid {
-          grid-template-columns: 1fr;
         }
         .about-headline {
           font-size: clamp(32px, 9vw, 48px);
@@ -1092,14 +1081,15 @@
         </div>
         <div class="about-right reveal">
           <p class="about-bio" data-i18n="about-bio">
-            I am a Full-Stack Developer focused on backend-heavy enterprise
-            systems, integrations, and modernizing legacy platforms, with a
-            background in intelligence analysis and team leadership. After 7
-            years in data-focused roles, I transitioned into software
-            engineering and now i am part of a team that builds enterprise
-            content management systems used by thousands of users. I focus on
-            developing data-driven tools and integrating modern technologies
-            with legacy systems to create practical, scalable solutions.
+            Builder. Seven years in intelligence analysis before I switched to
+            development. Analysts live in incomplete information — you make
+            decisions anyway, and you learn to know when you're out of your
+            depth.<br /><br />
+            I'm a backend developer in a team building an enterprise content
+            creation platform used by thousands of users every day.<br /><br />
+            AI closes the gap between knowing a tool and using it. What it
+            doesn't replace is the judgment to pick the right one — and knowing
+            what breaks when you don't.
           </p>
           <div class="about-stats">
             <div>
@@ -1151,7 +1141,7 @@
           <h3 class="project-title" data-i18n="work1-title">Enterprise Document Platform</h3>
           <p class="project-desc" data-i18n="work1-desc">Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.</p>
           <div class="project-tags">
-            <span>.NET</span><span>Angular</span><span>MSSQL</span><span>OpenShift</span>
+            <span>.NET</span><span>Angular</span><span>MSSQL</span><span>RabbitMQ</span><span>Redis</span><span>OpenShift</span>
           </div>
         </div>
 
@@ -1221,47 +1211,14 @@
     <!-- ── Stack ─────────────────────────────────── -->
     <section class="stack" id="stack">
       <div class="section-tag" data-i18n="section-stack">03 / Stack</div>
-      <div class="stack-grid reveal">
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell1-cat">Frontend</div>
-          <div class="cell-name" data-i18n="cell1-name">Angular (Basic)</div>
-          <div class="cell-desc" data-i18n="cell1-desc">Frontend development within enterprise integration contexts.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell2-cat">Server</div>
-          <div class="cell-name" data-i18n="cell2-name">.NET · Python · Java</div>
-          <div class="cell-desc" data-i18n="cell2-desc">Backend development, REST APIs, and server-side logic across enterprise systems.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell3-cat">Data</div>
-          <div class="cell-name" data-i18n="cell3-name">MSSQL · MongoDB</div>
-          <div class="cell-desc" data-i18n="cell3-desc">Database design, complex querying, and data modeling.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell4-cat">Office</div>
-          <div class="cell-name" data-i18n="cell4-name">Office Add-ins</div>
-          <div class="cell-desc" data-i18n="cell4-desc">Building Outlook and Word add-ins that extend productivity tools into enterprise workflows.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell5-cat">AI</div>
-          <div class="cell-name" data-i18n="cell5-name">LLM Integration</div>
-          <div class="cell-desc" data-i18n="cell5-desc">Integrating large language models into enterprise systems and workflows.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell6-cat">Infra</div>
-          <div class="cell-name" data-i18n="cell6-name">OpenShift · Helm</div>
-          <div class="cell-desc" data-i18n="cell6-desc">Container orchestration and cloud-native application deployment.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell7-cat">Monitoring</div>
-          <div class="cell-name" data-i18n="cell7-name">Kafka · ELK Stack</div>
-          <div class="cell-desc" data-i18n="cell7-desc">Familiar with event streaming and log-based observability in production environments.</div>
-        </div>
-        <div class="stack-cell">
-          <div class="cell-cat" data-i18n="cell8-cat">Currently</div>
-          <div class="cell-name" data-i18n="cell8-name">Always Learning</div>
-          <div class="cell-desc" data-i18n="cell8-desc">Exploring agentic architectures, tooling, and AI-native development patterns.</div>
-        </div>
+      <p class="stack-intro reveal" data-i18n="stack-intro">Tools I know well enough to make decisions with — not just use.</p>
+      <div class="stack-tools reveal">
+        <div class="stack-tool">.NET</div>
+        <div class="stack-tool">Python · Pandas</div>
+        <div class="stack-tool">MSSQL</div>
+        <div class="stack-tool">MongoDB</div>
+        <div class="stack-tool">RabbitMQ</div>
+        <div class="stack-tool">Redis</div>
       </div>
     </section>
 
@@ -1450,7 +1407,7 @@
           "hero-desc": "Bridging legacy infrastructures<br />and modern AI-driven solutions.",
           "section-about": "01 / About",
           "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
-          "about-bio": "I am a Full-Stack Developer focused on backend-heavy enterprise systems, integrations, and modernizing legacy platforms, with a background in intelligence analysis and team leadership. After 7 years in data-focused roles, I transitioned into software engineering and now I am part of a team that builds enterprise content management systems used by thousands of users. I focus on developing data-driven tools and integrating modern technologies with legacy systems to create practical, scalable solutions.",
+          "about-bio": "Builder. Seven years in intelligence analysis before I switched to development. Analysts live in incomplete information — you make decisions anyway, and you learn to know when you're out of your depth.<br /><br />I'm a backend developer in a team building an enterprise content creation platform used by thousands of users every day.<br /><br />AI closes the gap between knowing a tool and using it. What it doesn't replace is the judgment to pick the right one — and knowing what breaks when you don't.",
           "stat-based-label": "Based in", "stat-based-value": "Tel Aviv, IL",
           "stat-status-label": "Status", "stat-status-value": "Open to work",
           "section-work": "02 / Work",
@@ -1462,15 +1419,6 @@
           "work2-desc": "Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.",
           "work3-title": "AI-Powered Data Retrieval Engine",
           "work3-desc": "Applied MCP in a production enterprise environment to connect LLMs to complex internal databases. Built automated utilities for extracting unstructured data from legacy files, creating a pipeline that makes raw enterprise data accessible to AI systems.",
-          "section-stack": "03 / Stack",
-          "cell1-cat": "Frontend", "cell1-name": "Angular (Basic)", "cell1-desc": "Frontend development within enterprise integration contexts.",
-          "cell2-cat": "Server", "cell2-name": ".NET · Python · Java", "cell2-desc": "Backend development, REST APIs, and server-side logic across enterprise systems.",
-          "cell3-cat": "Data", "cell3-name": "MSSQL · MongoDB", "cell3-desc": "Database design, complex querying, and data modeling.",
-          "cell4-cat": "Office", "cell4-name": "Office Add-ins", "cell4-desc": "Building Outlook and Word add-ins that extend productivity tools into enterprise workflows.",
-          "cell5-cat": "AI", "cell5-name": "LLM Integration", "cell5-desc": "Integrating large language models into enterprise systems and workflows.",
-          "cell6-cat": "Infra", "cell6-name": "OpenShift · Helm", "cell6-desc": "Container orchestration and cloud-native application deployment.",
-          "cell7-cat": "Monitoring", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "Familiar with event streaming and log-based observability in production environments.",
-          "cell8-cat": "Currently", "cell8-name": "Always Learning", "cell8-desc": "Exploring agentic architectures, tooling, and AI-native development patterns.",
           "proj1-title": "Enterprise MCP Toolkit",
           "proj1-desc": "An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.",
           "proj2-title": "Picture House — Movie Recommender",
@@ -1479,6 +1427,8 @@
           "proj3-desc": "Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.",
           "proj4-title": "SEGS — Tour Booking Platform",
           "proj4-desc": "A full-stack booking and management platform built for a real EZ Raider tour business in Caesarea, Israel. Replaced a fully manual process with a bilingual (Hebrew/English) system serving customers, guides, and admins — live in production.",
+          "section-stack": "03 / Stack",
+          "stack-intro": "Tools I know well enough to make decisions with — not just use.",
           "section-contact": "04 / Contact",
           "contact-headline": "Let's build<br />something.",
           "contact-sub": "Open to new roles, collaborations,<br />and interesting problems.",
@@ -1491,7 +1441,7 @@
           "hero-desc": "מגשרת בין תשתיות ישנות<br />לפתרונות AI מודרניים.",
           "section-about": "01 / אודות",
           "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
-          "about-bio": "התחלתי בניתוח נתונים. שבע שנות מודיעין, כולל שנתיים ניהול צוות. עברתי לפיתוח תוכנה ומאז אני חלק מצוות שבונה מערכות ניהול תוכן ארגוניות בשימוש יומיומי של אלפי אנשים. מתמחה בחיבור בין תשתיות ישנות לפתרונות AI מודרניים, מאינטגרציות Office ועד כלים אוטומטיים לשליפת נתונים.",
+          "about-bio": "בילדרית. עברתי לפיתוח אחרי 7 שנים כאנליסטית מודיעין. כיום אני מפתחת בק-אנד בצוות שמתעסק בפלטפורמת ליצירת תוכן ארגוני המשמשת אלפי משתמשים מדי יום.<br /><br />ה-AI מצמצם את הפער בין להכיר כלי מסוים לבין להשתמש בו בפועל. מה שהוא לא מחליף זה את שיקול הדעת הנדרש כדי לבחור את הכלי הנכון – ואת היכולת להבין מה עלול להישבר כשבוחרים לא נכון.",
           "stat-based-label": "מיקום", "stat-based-value": "תל אביב",
           "stat-status-label": "סטטוס", "stat-status-value": "פנויה לעבודה",
           "section-work": "02 / עבודות",
@@ -1503,15 +1453,6 @@
           "work2-desc": "פיתוח אינטגרציות חלקות בין אפליקציות Web לכלי Office של מיקרוסופט. פיתחתי תוספים ל-Outlook ו-Word שמאפשרים למשתמשים לעבוד עם נתונים ארגוניים מורכבים ישירות מסביבת העבודה שלהם, ולייעל תהליכים ארגוניים משמעותית.",
           "work3-title": "מנוע שליפת נתונים מבוסס AI",
           "work3-desc": "יישום MCP בסביבת production ארגונית לחיבור מודלי שפה למסדי נתונים פנים-ארגוניים. פיתוח כלים אוטומטיים לחילוץ נתונים לא-מובנים מקבצים ישנים, ויצירת pipeline שהופך מידע גולמי לנגיש למערכות AI.",
-          "section-stack": "03 / טכנולוגיות",
-          "cell1-cat": "Frontend", "cell1-name": "Angular (בסיסי)", "cell1-desc": "פיתוח Frontend בהקשר של אינטגרציות ארגוניות.",
-          "cell2-cat": "שרת", "cell2-name": ".NET · Python · Java", "cell2-desc": "פיתוח Backend, REST APIs ולוגיקת שרת במערכות ארגוניות.",
-          "cell3-cat": "נתונים", "cell3-name": "MSSQL · MongoDB", "cell3-desc": "עיצוב מסדי נתונים, שאילתות מורכבות ומידול נתונים.",
-          "cell4-cat": "Office", "cell4-name": "Office Add-ins", "cell4-desc": "פיתוח תוספים ל-Outlook ו-Word שמרחיבים כלי פרודקטיביות לתוך תהליכי עבודה ארגוניים.",
-          "cell5-cat": "AI", "cell5-name": "LLM Integration", "cell5-desc": "אינטגרציה של מודלי שפה גדולים למערכות ולתהליכי עבודה ארגוניים.",
-          "cell6-cat": "תשתית", "cell6-name": "OpenShift · Helm", "cell6-desc": "תזמור קונטיינרים ופריסה של אפליקציות cloud-native.",
-          "cell7-cat": "ניטור", "cell7-name": "Kafka · ELK Stack", "cell7-desc": "היכרות עם event streaming ו-observability מבוסס לוגים בסביבות production.",
-          "cell8-cat": "כרגע", "cell8-name": "Always Learning", "cell8-desc": "חוקרת ארכיטקטורות אגנטיות, כלים ודפוסי פיתוח AI-native.",
           "proj1-title": "Enterprise MCP Toolkit",
           "proj1-desc": "כלי open source שמכליל את הגישה מ-production לתוך toolkit שניתן לשימוש חוזר. כולל schema discovery אוטומטי, חסימת queries הרסניים וסיכום תוצאות — תשתית שכל MCP server ארגוני יכול להשתמש בה.",
           "proj2-title": "Picture House — Movie Recommender",
@@ -1520,6 +1461,8 @@
           "proj3-desc": "חיזוי סיכון לשבץ מוחי על בסיס מאפיינים רפואיים ודמוגרפיים. השוואה בין מספר שיטות ML בפייתון ו-WEKA, כולל ניתוח תוצאות ומסקנות.",
           "proj4-title": "SEGS — פלטפורמת הזמנות טיולים",
           "proj4-desc": "פלטפורמה מלאה להזמנות וניהול שנבנתה עבור עסק אמיתי בקיסריה. החליפה תהליך ידני לחלוטין במערכת דו-לשונית (עברית/אנגלית) המשרתת לקוחות, מדריכים ומנהלים — בשימוש חי בפרודקשן.",
+          "section-stack": "03 / טכנולוגיות",
+          "stack-intro": "כלים שאני מכירה מספיק טוב כדי לקבל איתם החלטות — לא רק להשתמש בהם.",
           "section-contact": "04 / יצירת קשר",
           "contact-headline": "בואו נבנה משהו.",
           "contact-sub": "פתוחה לתפקידים חדשים, שיתופי פעולה,<br />ובעיות מעניינות.",
