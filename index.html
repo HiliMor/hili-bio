@@ -7,6 +7,10 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>Hili — Bio</title>
+    <meta
+      name="description"
+      content="Hili Mor builds useful products with AI — from real problems to tested, working software."
+    />
     <link rel="icon" id="favicon" type="image/png" href="color-avatar.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -276,7 +280,23 @@
         font-size: 13px;
         line-height: 1.7;
         color: var(--muted);
-        max-width: 260px;
+        max-width: 520px;
+      }
+      .build-loop {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 9px 14px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(250, 245, 240, 0.55);
+        backdrop-filter: blur(10px);
       }
 
       .hero-scroll-label {
@@ -549,6 +569,57 @@
       }
       .stack-tool:hover {
         background: #2a1e24;
+      }
+      .field-notes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid rgba(255, 220, 210, 0.12);
+      }
+      .field-note {
+        min-height: 310px;
+        padding: 32px;
+        color: var(--cream);
+        text-decoration: none;
+        border-left: 1px solid rgba(255, 220, 210, 0.12);
+        display: flex;
+        flex-direction: column;
+        transition:
+          background 0.25s,
+          color 0.25s;
+      }
+      .field-note:first-child {
+        border-left: 0;
+      }
+      .field-note:hover {
+        background: var(--cream);
+        color: var(--ink);
+      }
+      .field-note-num {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        opacity: 0.4;
+        margin-bottom: auto;
+      }
+      .field-note h3 {
+        font-size: clamp(22px, 2.2vw, 34px);
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        margin-bottom: 18px;
+      }
+      .field-note p {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        line-height: 1.75;
+        opacity: 0.55;
+      }
+      .field-note-link {
+        margin-top: 28px;
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        opacity: 0.55;
       }
 
       /* ── Contact ───────────────────────────────── */
@@ -830,8 +901,11 @@
       html[dir="rtl"] body,
       html[dir="rtl"] .about-bio,
       html[dir="rtl"] .hero-desc p,
+      html[dir="rtl"] .build-loop,
       html[dir="rtl"] .work-desc,
       html[dir="rtl"] .stack-intro,
+      html[dir="rtl"] .field-note p,
+      html[dir="rtl"] .field-note-link,
       html[dir="rtl"] .stat-label,
       html[dir="rtl"] .stat-value,
       html[dir="rtl"] .section-tag,
@@ -988,6 +1062,17 @@
         .stack-tools .stack-tool {
           flex: 0 0 calc(33.333% - 1px);
         }
+        .field-notes {
+          grid-template-columns: 1fr;
+        }
+        .field-note {
+          min-height: 240px;
+          border-left: 0;
+          border-top: 1px solid rgba(255, 220, 210, 0.12);
+        }
+        .field-note:first-child {
+          border-top: 0;
+        }
         .contact {
           padding: 72px 24px 80px;
         }
@@ -1037,7 +1122,7 @@
       <ul class="nav-links">
         <li><a href="#about" data-i18n="nav-about" class="magnetic">About</a></li>
         <li><a href="#work" data-i18n="nav-work" class="magnetic">Work</a></li>
-        <li><a href="#stack" data-i18n="nav-stack" class="magnetic">Stack</a></li>
+        <li><a href="#stack" data-i18n="nav-stack" class="magnetic">Field notes</a></li>
         <li><a href="#contact" data-i18n="nav-contact" class="magnetic">Contact</a></li>
       </ul>
       <div class="nav-right">
@@ -1052,7 +1137,7 @@
 
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        <span data-i18n="hero-badge">Available for work</span>
+        <span data-i18n="hero-badge">Building, testing, learning.</span>
       </div>
 
       <div class="hero-name" id="heroName">
@@ -1061,6 +1146,12 @@
       </div>
 
       <div class="hero-foot">
+        <div class="hero-desc">
+          <strong data-i18n="hero-title">I build useful products with AI in the loop.</strong>
+          <div class="build-loop" data-i18n="build-loop">
+            idea → prototype → test → ship → learn
+          </div>
+        </div>
         <div class="hero-scroll-label">Scroll</div>
       </div>
     </section>
@@ -1075,21 +1166,17 @@
       <div class="section-tag" data-i18n="section-about">01 / About</div>
       <div class="about-grid">
         <div class="about-headline reveal" data-i18n="about-headline">
-          Data, code,<br />
-          and <em>everything</em><br />
-          in between.
+          Curiosity gets it started.<br />
+          <em>Reality</em> makes it better.
         </div>
         <div class="about-right reveal">
           <p class="about-bio" data-i18n="about-bio">
-            Builder. Seven years in intelligence analysis before I switched to
-            development. Analysts live in incomplete information — you make
-            decisions anyway, and you learn to know when you're out of your
-            depth.<br /><br />
-            I'm a backend developer in a team building an enterprise content
-            creation platform used by thousands of users every day.<br /><br />
-            AI closes the gap between knowing a tool and using it. What it
-            doesn't replace is the judgment to pick the right one — and knowing
-            what breaks when you don't.
+            I spent seven years in intelligence analysis, where incomplete
+            information is normal and judgment matters. Now I build software
+            the same way: start with the real problem, learn what I need, and
+            keep going until it works outside the demo.<br /><br />
+            AI helps me cross unfamiliar territory quickly. Tests, users, and
+            production tell me whether I built the right thing.
           </p>
           <div class="about-stats">
             <div>
@@ -1124,7 +1211,7 @@
             </div>
             <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
             <h3 class="project-title" data-i18n="proj4-title">SEGS — Tour Booking Platform</h3>
-            <p class="project-desc" data-i18n="proj4-desc">A full-stack booking and management platform built for a real EZ Raider tour business in Caesarea, Israel. Replaced a fully manual process with a bilingual (Hebrew/English) system serving customers, guides, and admins — live in production.</p>
+            <p class="project-desc" data-i18n="proj4-desc">A booking and operations platform built for a real EZ Raider tour business in Caesarea. It replaced a manual process with a bilingual system for customers, guides, and admins — and now runs in production.</p>
             <div class="project-tags">
               <span>React</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>Tailwind</span>
             </div>
@@ -1148,7 +1235,7 @@
 
         <div class="project-item reveal">
           <div class="project-top">
-            <span class="project-num">004</span>
+            <span class="project-num">003</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge professional" data-i18n="badge-professional">Professional</span>
@@ -1161,26 +1248,12 @@
 
         <div class="project-item reveal">
           <div class="project-top">
-            <span class="project-num">005</span>
-            <span class="project-year">2026</span>
-          </div>
-          <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
-          <h3 class="project-title" data-i18n="proj1-title">Enterprise MCP Toolkit</h3>
-          <p class="project-desc" data-i18n="proj1-desc">An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.</p>
-          <div class="project-tags">
-            <span>Python</span><span>MCP</span><span>SQLAlchemy</span><span>SQLite</span><span>MSSQL</span>
-          </div>
-          <a class="project-link" href="https://github.com/HiliMor/enterprise-mcp-toolkit" target="_blank">GitHub ↗</a>
-        </div>
-
-        <div class="project-item reveal">
-          <div class="project-top">
-            <span class="project-num">006</span>
+            <span class="project-num">004</span>
             <span class="project-year">2025</span>
           </div>
           <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
           <h3 class="project-title" data-i18n="proj3-title">Stroke Prediction — Data Mining</h3>
-          <p class="project-desc" data-i18n="proj3-desc">Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.</p>
+          <p class="project-desc" data-i18n="proj3-desc">A comparison of stroke-risk prediction methods in Python and WEKA. The most important result was not the highest score, but discovering why one evaluation was misleading.</p>
           <div class="project-tags">
             <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>WEKA</span>
           </div>
@@ -1191,12 +1264,12 @@
           <img class="project-preview" src="movie-recommender-demo/demo.gif" alt="Picture House movie recommender demo" loading="lazy" />
           <div class="project-content">
           <div class="project-top">
-            <span class="project-num">007</span>
+            <span class="project-num">005</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge personal" data-i18n="badge-personal">Personal</span>
           <h3 class="project-title" data-i18n="proj2-title">Picture House — Movie Recommender</h3>
-          <p class="project-desc" data-i18n="proj2-desc">A full-stack movie recommendation engine using the MovieLens 25M dataset. Combines TF-IDF search with synonym expansion, and hybrid similarity (genome tags + collaborative filtering + genre vectors). Deployed on Railway with TMDB API enrichment.</p>
+          <p class="project-desc" data-i18n="proj2-desc">A movie recommendation product built on the MovieLens 25M dataset. Memory constraints changed the architecture: search is powered by TF-IDF and recommendations combine genome tags, collaborative filtering, and genre vectors.</p>
           <div class="project-tags">
             <span>Python</span><span>Flask</span><span>TF-IDF</span><span>SVD</span><span>TMDB API</span><span>Railway</span>
           </div>
@@ -1208,25 +1281,63 @@
       </div>
     </section>
 
-    <!-- ── Stack ─────────────────────────────────── -->
+    <!-- ── Field notes ───────────────────────────── -->
     <section class="stack" id="stack">
-      <div class="section-tag" data-i18n="section-stack">03 / Stack</div>
-      <p class="stack-intro reveal" data-i18n="stack-intro">Tools I know well enough to make decisions with — not just use.</p>
-      <div class="stack-tools reveal">
-        <div class="stack-tool">.NET</div>
-        <div class="stack-tool">Python · Pandas</div>
-        <div class="stack-tool">MSSQL</div>
-        <div class="stack-tool">MongoDB</div>
-        <div class="stack-tool">RabbitMQ</div>
-        <div class="stack-tool">Redis</div>
+      <div class="section-tag" data-i18n="section-stack">03 / Field notes</div>
+      <p class="stack-intro reveal" data-i18n="stack-intro">
+        The stack changes. The loop stays the same: build, test against reality,
+        notice what breaks, and make the next version better.
+      </p>
+      <div class="field-notes reveal">
+        <a
+          class="field-note"
+          href="https://github.com/HiliMor/ez-raider-booking-platform#key-architectural-decisions"
+          target="_blank"
+        >
+          <span class="field-note-num">01 / PRODUCTION</span>
+          <h3 data-i18n="note1-title">Production is mostly edge cases.</h3>
+          <p data-i18n="note1-desc">
+            Payments, retries, failed delivery, and real people doing the
+            unexpected taught me more than the happy path.
+          </p>
+          <span class="field-note-link" data-i18n="note-link">Read the build note ↗</span>
+        </a>
+        <a
+          class="field-note"
+          href="https://github.com/HiliMor/stroke-prediction-project#-note-on-weka-vs-python-results"
+          target="_blank"
+        >
+          <span class="field-note-num">02 / EVIDENCE</span>
+          <h3 data-i18n="note2-title">A higher score can be a worse result.</h3>
+          <p data-i18n="note2-desc">
+            Finding data leakage in my first ML experiment mattered more than
+            keeping the impressive number.
+          </p>
+          <span class="field-note-link" data-i18n="note-link">Read the build note ↗</span>
+        </a>
+        <a
+          class="field-note"
+          href="https://github.com/HiliMor/movie-recommender#what-i-learned-building-this"
+          target="_blank"
+        >
+          <span class="field-note-num">03 / CONSTRAINTS</span>
+          <h3 data-i18n="note3-title">Limits are part of the design.</h3>
+          <p data-i18n="note3-desc">
+            A memory limit changed the recommender architecture — and made it
+            simpler to run.
+          </p>
+          <span class="field-note-link" data-i18n="note-link">Read the build note ↗</span>
+        </a>
       </div>
     </section>
 
     <!-- ── Contact ────────────────────────────────── -->
     <section class="contact" id="contact">
       <div class="section-tag" data-i18n="section-contact">04 / Contact</div>
-      <div class="contact-headline reveal" data-i18n="contact-headline">Let's build<br />something.</div>
-      <p class="contact-sub reveal" data-i18n="contact-sub">Open to new roles, collaborations,<br />and interesting problems.</p>
+      <div class="contact-headline reveal" data-i18n="contact-headline">Have a real<br />problem?</div>
+      <p class="contact-sub reveal" data-i18n="contact-sub">
+        I like useful ideas, messy questions,<br />and people who want to test them.
+      </p>
       <a href="mailto:hello@hili.bio" class="contact-email reveal magnetic"
         >hello@hili.bio</a
       >
@@ -1275,26 +1386,36 @@
       });
 
       /* ── Ticker ─────────────────────────────────── */
-      const SKILLS = [
-        "Angular",
-        ".NET",
-        "MSSQL",
-        "MongoDB",
-        "Outlook Add-ins",
-        "Word Add-ins",
-        "Python",
-        "AI Automation",
-        "OpenShift",
-        "Helm",
-        "Kafka",
-        "C#",
-        "REST APIs",
-      ];
+      const TICKER_ITEMS = {
+        en: [
+          "Real problems",
+          "The right tool",
+          "Prototype",
+          "Test",
+          "Ship",
+          "Learn from users",
+          "Own the outcome",
+          "Iterate",
+        ],
+        he: [
+          "בעיות אמיתיות",
+          "הכלי הנכון",
+          "אב־טיפוס",
+          "בדיקה",
+          "השקה",
+          "למידה ממשתמשים",
+          "אחריות על התוצאה",
+          "שיפור",
+        ],
+      };
       const track = document.getElementById("tickerTrack");
-      const chunk = SKILLS.map(
-        (s) => `<span class="ticker-item">${s}</span>`,
-      ).join("");
-      track.innerHTML = chunk + chunk + chunk; // triple for seamless loop
+      function renderTicker(lang) {
+        const chunk = TICKER_ITEMS[lang]
+          .map((item) => `<span class="ticker-item">${item}</span>`)
+          .join("");
+        track.innerHTML = chunk + chunk + chunk;
+      }
+      renderTicker("en");
 
       /* ── Text scramble ──────────────────────────── */
       const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -1402,12 +1523,13 @@
       /* ── i18n ───────────────────────────────────── */
       const I18N = {
         en: {
-          "nav-about": "About", "nav-work": "Work", "nav-stack": "Stack", "nav-contact": "Contact",
-          "hero-badge": "Available for work",
-          "hero-desc": "Bridging legacy infrastructures<br />and modern AI-driven solutions.",
+          "nav-about": "About", "nav-work": "Work", "nav-stack": "Field notes", "nav-contact": "Contact",
+          "hero-badge": "Building, testing, learning.",
+          "hero-title": "I build useful products with AI in the loop.",
+          "build-loop": "idea → prototype → test → ship → learn",
           "section-about": "01 / About",
-          "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
-          "about-bio": "Builder. Seven years in intelligence analysis before I switched to development. Analysts live in incomplete information — you make decisions anyway, and you learn to know when you're out of your depth.<br /><br />I'm a backend developer in a team building an enterprise content creation platform used by thousands of users every day.<br /><br />AI closes the gap between knowing a tool and using it. What it doesn't replace is the judgment to pick the right one — and knowing what breaks when you don't.",
+          "about-headline": "Curiosity gets it started.<br /><em>Reality</em> makes it better.",
+          "about-bio": "I spent seven years in intelligence analysis, where incomplete information is normal and judgment matters. Now I build software the same way: start with the real problem, learn what I need, and keep going until it works outside the demo.<br /><br />AI helps me cross unfamiliar territory quickly. Tests, users, and production tell me whether I built the right thing.",
           "stat-based-label": "Based in", "stat-based-value": "Tel Aviv, IL",
           "stat-status-label": "Status", "stat-status-value": "Open to work",
           "section-work": "02 / Work",
@@ -1419,31 +1541,37 @@
           "work2-desc": "Bridging the gap between web applications and Microsoft Office tools. I developed seamless integrations for Outlook and Word, allowing users to interact with complex enterprise data directly within their productivity environment, significantly streamlining organizational workflows.",
           "work3-title": "AI-Powered Data Retrieval Engine",
           "work3-desc": "Applied MCP in a production enterprise environment to connect LLMs to complex internal databases. Built automated utilities for extracting unstructured data from legacy files, creating a pipeline that makes raw enterprise data accessible to AI systems.",
-          "proj1-title": "Enterprise MCP Toolkit",
-          "proj1-desc": "An open source framework that generalizes the MCP approach from production into a reusable toolkit. Includes automatic schema discovery, destructive query blocking, and result summarization — designed so any enterprise MCP server can build on it.",
           "proj2-title": "Picture House — Movie Recommender",
-          "proj2-desc": "A full-stack movie recommendation engine using the MovieLens 25M dataset. Combines TF-IDF search with synonym expansion, and hybrid similarity (genome tags + collaborative filtering + genre vectors). Deployed on Railway with TMDB API enrichment.",
+          "proj2-desc": "A movie recommendation product built on the MovieLens 25M dataset. Memory constraints changed the architecture: search is powered by TF-IDF and recommendations combine genome tags, collaborative filtering, and genre vectors.",
           "proj3-title": "Stroke Prediction — Data Mining",
-          "proj3-desc": "Stroke risk prediction based on medical and demographic features. Comparison of multiple ML methods in Python and WEKA, including result analysis and conclusions.",
+          "proj3-desc": "A comparison of stroke-risk prediction methods in Python and WEKA. The most important result was not the highest score, but discovering why one evaluation was misleading.",
           "proj4-title": "SEGS — Tour Booking Platform",
-          "proj4-desc": "A full-stack booking and management platform built for a real EZ Raider tour business in Caesarea, Israel. Replaced a fully manual process with a bilingual (Hebrew/English) system serving customers, guides, and admins — live in production.",
-          "section-stack": "03 / Stack",
-          "stack-intro": "Tools I know well enough to make decisions with — not just use.",
+          "proj4-desc": "A booking and operations platform built for a real EZ Raider tour business in Caesarea. It replaced a manual process with a bilingual system for customers, guides, and admins — and now runs in production.",
+          "section-stack": "03 / Field notes",
+          "stack-intro": "The stack changes. The loop stays the same: build, test against reality, notice what breaks, and make the next version better.",
+          "note1-title": "Production is mostly edge cases.",
+          "note1-desc": "Payments, retries, failed delivery, and real people doing the unexpected taught me more than the happy path.",
+          "note2-title": "A higher score can be a worse result.",
+          "note2-desc": "Finding data leakage in my first ML experiment mattered more than keeping the impressive number.",
+          "note3-title": "Limits are part of the design.",
+          "note3-desc": "A memory limit changed the recommender architecture — and made it simpler to run.",
+          "note-link": "Read the build note ↗",
           "section-contact": "04 / Contact",
-          "contact-headline": "Let's build<br />something.",
-          "contact-sub": "Open to new roles, collaborations,<br />and interesting problems.",
+          "contact-headline": "Have a real<br />problem?",
+          "contact-sub": "I like useful ideas, messy questions,<br />and people who want to test them.",
           "footer-txt": "© 2026 Hili Mor. All rights reserved.",
           "lang-btn": "HE"
         },
         he: {
-          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "טכנולוגיות", "nav-contact": "יצירת קשר",
-          "hero-badge": "פנויה להזדמנויות",
-          "hero-desc": "מגשרת בין תשתיות ישנות<br />לפתרונות AI מודרניים.",
+          "nav-about": "אודות", "nav-work": "עבודות", "nav-stack": "רשימות מהשטח", "nav-contact": "יצירת קשר",
+          "hero-badge": "בונה, בודקת, לומדת.",
+          "hero-title": "אני בונה מוצרים שימושיים עם AI כחלק מתהליך העבודה.",
+          "build-loop": "רעיון ← אב־טיפוס ← בדיקה ← השקה ← למידה",
           "section-about": "01 / אודות",
-          "about-headline": "Data, code,<br />and <em>everything</em><br />in between.",
-          "about-bio": "בילדרית. עברתי לפיתוח אחרי 7 שנים כאנליסטית מודיעין. כיום אני מפתחת בק-אנד בצוות שמתעסק בפלטפורמת ליצירת תוכן ארגוני המשמשת אלפי משתמשים מדי יום.<br /><br />ה-AI מצמצם את הפער בין להכיר כלי מסוים לבין להשתמש בו בפועל. מה שהוא לא מחליף זה את שיקול הדעת הנדרש כדי לבחור את הכלי הנכון – ואת היכולת להבין מה עלול להישבר כשבוחרים לא נכון.",
+          "about-headline": "הסקרנות מתחילה את זה.<br /><em>המציאות</em> הופכת את זה לטוב יותר.",
+          "about-bio": "עבדתי שבע שנים באנליזה מודיעינית, מקום שבו מידע חלקי הוא מצב רגיל ושיקול דעת הוא חלק מהעבודה. היום אני בונה תוכנה באותה צורה: מתחילה מהבעיה האמיתית, לומדת את מה שצריך, וממשיכה עד שזה עובד גם מחוץ לדמו.<br /><br />AI עוזר לי לעבור במהירות דרך תחומים וכלים חדשים. בדיקות, משתמשים ופרודקשן מגלים לי אם בניתי את הדבר הנכון.",
           "stat-based-label": "מיקום", "stat-based-value": "תל אביב",
-          "stat-status-label": "סטטוס", "stat-status-value": "פנויה לעבודה",
+          "stat-status-label": "סטטוס", "stat-status-value": "פתוחה לעבודה",
           "section-work": "02 / עבודות",
           "badge-professional": "מקצועי", "badge-personal": "אישי",
           "filter-all": "הכל", "filter-professional": "מקצועי", "filter-personal": "אישי",
@@ -1453,19 +1581,24 @@
           "work2-desc": "פיתוח אינטגרציות חלקות בין אפליקציות Web לכלי Office של מיקרוסופט. פיתחתי תוספים ל-Outlook ו-Word שמאפשרים למשתמשים לעבוד עם נתונים ארגוניים מורכבים ישירות מסביבת העבודה שלהם, ולייעל תהליכים ארגוניים משמעותית.",
           "work3-title": "מנוע שליפת נתונים מבוסס AI",
           "work3-desc": "יישום MCP בסביבת production ארגונית לחיבור מודלי שפה למסדי נתונים פנים-ארגוניים. פיתוח כלים אוטומטיים לחילוץ נתונים לא-מובנים מקבצים ישנים, ויצירת pipeline שהופך מידע גולמי לנגיש למערכות AI.",
-          "proj1-title": "Enterprise MCP Toolkit",
-          "proj1-desc": "כלי open source שמכליל את הגישה מ-production לתוך toolkit שניתן לשימוש חוזר. כולל schema discovery אוטומטי, חסימת queries הרסניים וסיכום תוצאות — תשתית שכל MCP server ארגוני יכול להשתמש בה.",
           "proj2-title": "Picture House — Movie Recommender",
-          "proj2-desc": "מנוע המלצות full-stack על בסיס MovieLens 25M. משלב חיפוש TF-IDF עם הרחבת מילים נרדפות, והמלצת סרטים דומים היברידית (genome tags + collaborative filtering + ז'אנרים). פרוס ב-Railway עם enrichment מ-TMDB API.",
+          "proj2-desc": "מוצר להמלצת סרטים על בסיס MovieLens 25M. מגבלות הזיכרון שינו את הארכיטקטורה: החיפוש מבוסס TF-IDF וההמלצות משלבות genome tags, collaborative filtering וז'אנרים.",
           "proj3-title": "Stroke Prediction — Data Mining",
-          "proj3-desc": "חיזוי סיכון לשבץ מוחי על בסיס מאפיינים רפואיים ודמוגרפיים. השוואה בין מספר שיטות ML בפייתון ו-WEKA, כולל ניתוח תוצאות ומסקנות.",
+          "proj3-desc": "השוואה בין שיטות לחיזוי סיכון לשבץ בפייתון וב-WEKA. התוצאה החשובה ביותר לא הייתה הציון הגבוה, אלא ההבנה מדוע אחת ההערכות הייתה מטעה.",
           "proj4-title": "SEGS — פלטפורמת הזמנות טיולים",
-          "proj4-desc": "פלטפורמה מלאה להזמנות וניהול שנבנתה עבור עסק אמיתי בקיסריה. החליפה תהליך ידני לחלוטין במערכת דו-לשונית (עברית/אנגלית) המשרתת לקוחות, מדריכים ומנהלים — בשימוש חי בפרודקשן.",
-          "section-stack": "03 / טכנולוגיות",
-          "stack-intro": "כלים שאני מכירה מספיק טוב כדי לקבל איתם החלטות — לא רק להשתמש בהם.",
+          "proj4-desc": "פלטפורמת הזמנות ותפעול שנבנתה עבור עסק אמיתי בקיסריה. היא החליפה תהליך ידני במערכת דו-לשונית עבור לקוחות, מדריכים ומנהלים — והיום פועלת בפרודקשן.",
+          "section-stack": "03 / רשימות מהשטח",
+          "stack-intro": "הכלים משתנים. הלולאה נשארת: לבנות, לבדוק מול המציאות, לזהות מה נשבר, ולשפר את הגרסה הבאה.",
+          "note1-title": "פרודקשן הוא בעיקר מקרי קצה.",
+          "note1-desc": "תשלומים, ניסיונות חוזרים, הודעות שלא נשלחו ואנשים שעושים את הבלתי צפוי לימדו אותי יותר מהתרחיש המושלם.",
+          "note2-title": "ציון גבוה יותר יכול להיות תוצאה פחות טובה.",
+          "note2-desc": "גילוי דליפת מידע בניסוי ה-ML הראשון שלי היה חשוב יותר משמירה על המספר המרשים.",
+          "note3-title": "מגבלות הן חלק מהעיצוב.",
+          "note3-desc": "מגבלת זיכרון שינתה את הארכיטקטורה של מנוע ההמלצות — והפכה אותו לפשוט יותר להרצה.",
+          "note-link": "לרשומת הבנייה ↗",
           "section-contact": "04 / יצירת קשר",
-          "contact-headline": "בואו נבנה משהו.",
-          "contact-sub": "פתוחה לתפקידים חדשים, שיתופי פעולה,<br />ובעיות מעניינות.",
+          "contact-headline": "יש בעיה<br />אמיתית?",
+          "contact-sub": "אני אוהבת רעיונות שימושיים, שאלות מבולגנות,<br />ואנשים שרוצים לבדוק אותם.",
           "footer-txt": "© 2026 Hili Mor. כל הזכויות שמורות.",
           "lang-btn": "EN"
         }
@@ -1482,6 +1615,7 @@
         document.documentElement.setAttribute("dir", lang === "he" ? "rtl" : "ltr");
         document.documentElement.setAttribute("lang", lang);
         document.getElementById("langToggle").textContent = t["lang-btn"];
+        renderTicker(lang);
         localStorage.setItem("lang", lang);
         currentLang = lang;
       }
