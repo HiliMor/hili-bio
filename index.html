@@ -11,7 +11,8 @@
       name="description"
       content="Hili Mor builds products, websites, and visual experiences, connecting development, design, and AI-assisted creative production."
     />
-    <link rel="icon" id="favicon" type="image/png" href="color-avatar.png" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1129,11 +1130,24 @@
       </div>
       <div class="projects-grid">
 
+        <div class="project-item featured reveal" id="velvet-army">
+          <img class="project-preview" src="work/velvet-army/media/magazine-desktop.jpg" alt="Velvet Army editorial website with a red masthead and monochrome jewelry portrait" loading="lazy" width="1920" height="1080" />
+          <div class="project-content">
+            <div class="project-top"><span class="project-num">001</span><span class="project-year">2026</span></div>
+            <span class="item-badge professional">Brand project</span>
+            <h3 class="project-title">Velvet Army — Digital &amp; Creative Direction</h3>
+            <p class="project-desc">An editorial jewelry website and a visual world built around contrast. I connected web design, front-end development, AI-assisted campaign imagery, and a short brand film, with two alternate website concepts exploring warmth and coastal light.</p>
+            <div class="project-tags"><span>Web design</span><span>Development</span><span>Art direction</span><span>AI imagery</span></div>
+            <a class="project-link" href="work/velvet-army/">Explore the project ↗</a>
+            <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film ↗</a>
+          </div>
+        </div>
+
         <div class="project-item featured reveal">
           <img class="project-preview" src="segs-demo/segs-home-scroll.gif" alt="SEGS EZ Raider booking platform demo" loading="lazy" />
           <div class="project-content">
             <div class="project-top">
-              <span class="project-num">001</span>
+              <span class="project-num">002</span>
               <span class="project-year">2025—2026</span>
             </div>
             <span class="item-badge professional">Professional</span>
@@ -1144,19 +1158,6 @@
             </div>
             <a class="project-link" href="https://segs.co.il/" target="_blank">Live ↗</a>
             <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank">GitHub ↗</a>
-          </div>
-        </div>
-
-        <div class="project-item featured reveal" id="velvet-army">
-          <img class="project-preview" src="work/velvet-army/media/magazine-desktop.jpg" alt="Velvet Army editorial website with a red masthead and monochrome jewelry portrait" loading="lazy" width="1920" height="1080" />
-          <div class="project-content">
-            <div class="project-top"><span class="project-num">002</span><span class="project-year">2026</span></div>
-            <span class="item-badge professional">Brand project</span>
-            <h3 class="project-title">Velvet Army — Digital &amp; Creative Direction</h3>
-            <p class="project-desc">An editorial jewelry website and a visual world built around contrast. I connected web design, front-end development, AI-assisted campaign imagery, and a short brand film, with two alternate website concepts exploring warmth and coastal light.</p>
-            <div class="project-tags"><span>Web design</span><span>Development</span><span>Art direction</span><span>AI imagery</span></div>
-            <a class="project-link" href="work/velvet-army/">Explore the project ↗</a>
-            <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film ↗</a>
           </div>
         </div>
 
@@ -1484,30 +1485,6 @@
       });
 
 
-      // Generate cropped favicon from avatar
-      (function() {
-        const img = new Image();
-        img.onload = function() {
-          const size = 64;
-          const canvas = document.createElement("canvas");
-          canvas.width = size;
-          canvas.height = size;
-          const ctx = canvas.getContext("2d");
-          // clip to circle
-          ctx.beginPath();
-          ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-          ctx.clip();
-          // square crop: zoom into face area (upper-center)
-          const sw = img.width * 0.7;
-          const sh = sw;
-          const sx = (img.width - sw) / 2;
-          const sy = img.height * 0.01;
-          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, size, size);
-          const link = document.getElementById("favicon");
-          link.href = canvas.toDataURL("image/png");
-        };
-        img.src = "color-avatar.png";
-      })();
     </script>
   </body>
 </html>
