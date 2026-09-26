@@ -9,7 +9,7 @@
     <title>Hili — Bio</title>
     <meta
       name="description"
-      content="Hili Mor builds useful products with AI — from real problems to tested, working software."
+      content="Hili Mor builds products, websites, and visual experiences, connecting development, design, and AI-assisted creative production."
     />
     <link rel="icon" id="favicon" type="image/png" href="color-avatar.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -775,18 +775,22 @@
         color: var(--cream);
       }
       .project-item.featured {
+        border-left: none;
+        border-top: 1px solid var(--border);
         grid-column: span 2;
         flex-direction: row;
         gap: 40px;
         align-items: flex-start;
       }
       .project-item.featured .project-preview {
+        height: auto;
         width: 52%;
         flex-shrink: 0;
         border-radius: 6px;
         border: 1px solid var(--border);
         display: block;
       }
+      .project-item.featured:first-child { border-top: none; }
       .project-item:not(.featured) .project-preview {
         width: 100%;
         border-radius: 6px;
@@ -1069,7 +1073,7 @@
 
       <div class="hero-foot">
         <div class="hero-desc">
-          <strong>I build useful products with AI in the loop.</strong>
+          <strong>I build products, websites, and visual experiences.</strong>
           <div class="build-loop">
             idea → prototype → test → ship → learn
           </div>
@@ -1097,8 +1101,9 @@
             information is normal and judgment matters. Now I build software
             the same way: start with the real problem, learn what I need, and
             keep going until it works outside the demo.<br /><br />
-            AI helps me cross unfamiliar territory quickly. Tests, users, and
-            production tell me whether I built the right thing.
+            My work connects development with visual design, from booking systems
+            to editorial websites and AI-assisted brand imagery. Tests, users,
+            and careful iteration help me bring the pieces together.
           </p>
           <div class="about-stats">
             <div>
@@ -1142,10 +1147,23 @@
           </div>
         </div>
 
+        <div class="project-item featured reveal" id="velvet-army">
+          <img class="project-preview" src="work/velvet-army/media/magazine-desktop.jpg" alt="Velvet Army editorial website with a red masthead and monochrome jewelry portrait" loading="lazy" width="1920" height="1080" />
+          <div class="project-content">
+            <div class="project-top"><span class="project-num">002</span><span class="project-year">2026</span></div>
+            <span class="item-badge professional">Brand project</span>
+            <h3 class="project-title">Velvet Army — Digital &amp; Creative Direction</h3>
+            <p class="project-desc">An editorial jewelry website and a visual world built around contrast. I connected web design, front-end development, AI-assisted campaign imagery, and a short brand film, with two alternate website concepts exploring warmth and coastal light.</p>
+            <div class="project-tags"><span>Web design</span><span>Development</span><span>Art direction</span><span>AI imagery</span></div>
+            <a class="project-link" href="work/velvet-army/">Explore the project ↗</a>
+            <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film ↗</a>
+          </div>
+        </div>
+
         <div class="project-item reveal">
           <img class="project-preview" src="after-rain-demo.png" alt="After Rain GitHub project preview" loading="lazy" />
           <div class="project-top">
-            <span class="project-num">002</span>
+            <span class="project-num">003</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge personal">Personal</span>
@@ -1161,7 +1179,7 @@
         <div class="project-item reveal">
           <img class="project-preview" src="skogafoss-cover.jpg" alt="Skógafoss WebGPU water study" loading="lazy" />
           <div class="project-top">
-            <span class="project-num">003</span>
+            <span class="project-num">004</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge personal">Personal</span>
@@ -1176,7 +1194,7 @@
 
         <div class="project-item reveal">
           <div class="project-top">
-            <span class="project-num">004</span>
+            <span class="project-num">005</span>
             <span class="project-year">2025—2026</span>
           </div>
           <span class="item-badge professional">Professional</span>
@@ -1190,7 +1208,7 @@
 
         <div class="project-item reveal">
           <div class="project-top">
-            <span class="project-num">005</span>
+            <span class="project-num">006</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge professional">Professional</span>
@@ -1203,7 +1221,7 @@
 
         <div class="project-item reveal">
           <div class="project-top">
-            <span class="project-num">006</span>
+            <span class="project-num">007</span>
             <span class="project-year">2025</span>
           </div>
           <span class="item-badge personal">Personal</span>
@@ -1219,7 +1237,7 @@
           <img class="project-preview" src="movie-recommender-demo/demo.gif" alt="Picture House movie recommender demo" loading="lazy" />
           <div class="project-content">
           <div class="project-top">
-            <span class="project-num">007</span>
+            <span class="project-num">008</span>
             <span class="project-year">2026</span>
           </div>
           <span class="item-badge personal">Personal</span>
@@ -1299,6 +1317,7 @@
       <div class="contact-socials reveal">
         <a href="https://github.com/HiliMor" target="_blank" class="social-link">GitHub</a>
         <a href="https://x.com/Hili_100" target="_blank" class="social-link">X</a>
+        <a href="https://contra.com/hili_m6nhtbbp" target="_blank" rel="noopener noreferrer" class="social-link">Contra</a>
       </div>
     </section>
 
