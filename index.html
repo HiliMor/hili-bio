@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0"
     />
-    <title>Hili — Bio</title>
+    <title>Hili Mor — Development, Design &amp; Creative Production</title>
+    <link rel="canonical" href="https://hili.bio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hili Mor — Development, Design &amp; Creative Production" />
+    <meta property="og:description" content="Products, websites, and visual experiences. Selected projects by Hili Mor, from production systems to creative direction." />
+    <meta property="og:url" content="https://hili.bio/" />
     <meta
       name="description"
       content="Hili Mor builds products, websites, and visual experiences, connecting development, design, and AI-assisted creative production."
@@ -16,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -31,9 +36,9 @@
       :root {
         --cream: #faf5f0;
         --ink: #1c1418;
-        --rose: #b85c6e;
+        --rose: #985064;
         --blush: #f2d9d4;
-        --muted: rgba(28, 20, 24, 0.38);
+        --muted: #665c60;
         --border: rgba(28, 20, 24, 0.1);
       }
 
@@ -46,10 +51,7 @@
         font-family: "Syne", sans-serif;
         background: var(--cream);
         color: var(--ink);
-        cursor: none;
         overflow-x: hidden;
-        -webkit-user-select: none;
-        user-select: none;
       }
 
       /* ── Noise overlay ─────────────────────────── */
@@ -62,64 +64,7 @@
         z-index: 9000;
         opacity: 0.03;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        animation: grain 0.4s steps(2) infinite;
       }
-      @keyframes grain {
-        0% {
-          transform: translate(0, 0);
-        }
-        25% {
-          transform: translate(-1%, 1%);
-        }
-        50% {
-          transform: translate(1%, -1%);
-        }
-        75% {
-          transform: translate(0, 1%);
-        }
-        100% {
-          transform: translate(-1%, 0);
-        }
-      }
-
-      /* ── Custom cursor ─────────────────────────── */
-      .cursor {
-        position: fixed;
-        width: 8px;
-        height: 8px;
-        background: #fff;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s;
-        mix-blend-mode: difference;
-        will-change: left, top;
-      }
-      .cursor-ring {
-        position: fixed;
-        width: 34px;
-        height: 34px;
-        border: 1.5px solid #fff;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        opacity: 0.6;
-        mix-blend-mode: difference;
-        transition:
-          opacity 0.25s,
-          width 0.3s,
-          height 0.3s;
-        will-change: left, top;
-      }
-      body.hovered .cursor {
-        transform: translate(-50%, -50%) scale(3.5);
-      }
-      body.hovered .cursor-ring {
-        opacity: 0;
-      }
-
       /* ── Nav ───────────────────────────────────── */
       nav {
         position: fixed;
@@ -147,7 +92,6 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
         padding: 5px 11px;
-        cursor: none;
         text-decoration: none;
         transition: opacity 0.2s;
         white-space: nowrap;
@@ -221,25 +165,13 @@
         height: 6px;
         background: #7db89a;
         border-radius: 50%;
-        animation: blink 2.2s ease infinite;
       }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.25;
-        }
-      }
-
       .hero-name {
         font-size: clamp(88px, 13.5vw, 210px);
         font-weight: 800;
         line-height: 0.88;
         letter-spacing: -0.03em;
         text-transform: uppercase;
-        user-select: none;
       }
       .hero-name .line-2 {
         -webkit-text-stroke: 2px var(--rose);
@@ -313,7 +245,6 @@
       }
       .ticker-track {
         display: flex;
-        animation: scroll-left 22s linear infinite;
         white-space: nowrap;
       }
       .ticker-track:hover {
@@ -336,15 +267,6 @@
         font-size: 8px;
         color: var(--rose);
       }
-      @keyframes scroll-left {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-
       /* ── Section common ────────────────────────── */
       .section-tag {
         font-family: "DM Mono", monospace;
@@ -433,7 +355,6 @@
         align-items: center;
         position: relative;
         overflow: hidden;
-        cursor: none;
       }
       .work-item:last-child {
         border-bottom: 1px solid var(--border);
@@ -829,7 +750,6 @@
         border: 1px solid var(--border);
         background: transparent;
         color: var(--muted);
-        cursor: none;
         transition: background 0.2s, color 0.2s, border-color 0.2s;
       }
       .filter-btn:hover {
@@ -844,13 +764,6 @@
       .project-item.hidden {
         display: none;
       }
-      /* ── Magnetic ───────────────────────────────── */
-      .magnetic {
-        display: inline-block;
-        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-
       /* ── Footer ────────────────────────────────── */
       footer {
         border-top: 1px solid var(--border);
@@ -864,19 +777,6 @@
         font-size: 10px;
         letter-spacing: 0.06em;
         color: var(--muted);
-      }
-
-      /* ── Reveal on scroll ──────────────────────── */
-      .reveal {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.75s ease,
-          transform 0.75s ease;
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: translateY(0);
       }
 
       /* ── Responsive ────────────────────────────── */
@@ -906,10 +806,6 @@
 
       /* ── Mobile landscape / small tablet ───────── */
       @media (max-width: 820px) {
-        .cursor,
-        .cursor-ring {
-          display: none;
-        }
         body {
           cursor: auto;
         }
@@ -1037,29 +933,165 @@
           font-size: clamp(18px, 6vw, 28px);
         }
       }
+
+      /* Readability and interaction refinements. */
+      html { scroll-padding-top: 100px; }
+      button, summary { cursor: pointer; }
+      a, button, summary { -webkit-tap-highlight-color: transparent; }
+      a { text-underline-offset: 5px; }
+      :focus-visible { outline: 3px solid var(--rose); outline-offset: 5px; }
+      .about :focus-visible, .stack :focus-visible { outline-color: #e0a7b3; }
+      ::selection { background: var(--blush); color: var(--ink); }
+      .skip-link { position: fixed; top: 12px; left: 20px; z-index: 1000; padding: 14px 20px; background: var(--ink); color: var(--cream); transform: translateY(-180%); }
+      .skip-link:focus { transform: translateY(0); }
+      nav { padding-block: 16px; gap: 24px; mix-blend-mode: normal; background: rgba(250,245,240,.96); border-bottom: 1px solid transparent; }
+      nav.scrolled, nav.menu-open { border-color: var(--border); backdrop-filter: blur(16px); box-shadow: 0 4px 20px rgba(28,20,24,.04); }
+      .nav-logo, .nav-links a { color: var(--ink); min-height: 44px; display: inline-flex; align-items: center; }
+      .nav-logo { font-size: 14px; font-weight: 700; white-space: nowrap; }
+      .nav-links { gap: 28px; }
+      .nav-links a { font-size: 12px; letter-spacing: .08em; }
+      .nav-links a:hover { opacity: 1; color: var(--rose); }
+      .nav-contact { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; background: var(--ink); color: var(--cream); text-decoration: none; font-family: "DM Mono", monospace; font-size: 12px; }
+      .nav-contact:hover { background: var(--rose); }
+      .menu-toggle { display: none; align-items: center; gap: 12px; min-height: 44px; padding: 10px 14px; border: 1px solid var(--border); color: var(--ink); background: transparent; font-family: "DM Mono", monospace; font-size: 12px; }
+      .hero { min-height: max(720px,100svh); padding-top: 160px; padding-bottom: 48px; }
+      .hero-name { font-size: clamp(88px,10.5vw,160px); position: relative; z-index: 1; width: fit-content; }
+      .hero-badge { font-size: 11px; }
+      .hero-foot { position: relative; z-index: 1; flex-direction: column; align-items: flex-start; gap: 26px; margin-top: 30px; max-width: 48%; }
+      .hero-desc strong { font-size: clamp(20px,1.8vw,25px); line-height: 1.4; max-width: 490px; }
+      .hero-desc p, .about-bio, .project-desc, .stack-intro, .field-note p, .contact-sub { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.75; }
+      .hero-desc p { margin-top: 12px; max-width: 440px; }
+      .build-loop { font-size: 11px; line-height: 1.7; padding: 9px 0; border: 0; border-radius: 0; background: none; backdrop-filter: none; margin-top: 12px; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+      .hero-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 15px 22px; background: var(--ink); color: var(--cream); border: 1px solid var(--ink); text-decoration: none; font-family: "DM Mono", monospace; font-size: 12px; letter-spacing: .04em; }
+      .hero-cta:hover { background: var(--rose); border-color: var(--rose); }
+      .hero-contact { color: var(--ink); font-family: "DM Sans", sans-serif; font-size: 15px; min-height: 48px; display: inline-flex; align-items: center; }
+      .hero-contact:hover { color: var(--rose); }
+      .ticker { padding: 22px 44px; }
+      .ticker-track { flex-wrap: wrap; justify-content: space-between; gap: 16px 24px; white-space: normal; list-style: none; }
+      .ticker-item { padding: 0; font-size: 11px; letter-spacing: .06em; }
+      .section-tag { font-size: 12px; font-weight: 400; color: var(--muted); opacity: 1; margin-bottom: 44px; }
+      .about .section-tag, .stack .section-tag { color: #c1b4b9; }
+      .about-headline em { color: #e0a7b3; }
+      .about-bio, .stack-intro { opacity: 1; color: #ddd2d6; }
+      .about-bio { margin-bottom: 36px; }
+      .stat-label { opacity: 1; color: #c1b4b9; font-size: 11px; letter-spacing: .1em; }
+      .stat-value { font-size: 17px; }
+      .section-intro { font-family: "DM Sans", sans-serif; font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 650px; margin-top: -16px; }
+      .work-filters { margin-top: 28px; flex-wrap: wrap; }
+      .filter-btn { min-height: 44px; font-size: 12px; padding: 9px 18px; letter-spacing: .06em; }
+      .projects-grid { margin-top: 32px; grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .project-item { min-width: 0; }
+      .project-item:hover { background: transparent; }
+      .project-item.featured .project-content { min-width: 0; }
+      .project-title { font-size: clamp(20px,1.8vw,26px); line-height: 1.3; }
+      .project-desc { margin-bottom: 20px; }
+      .project-outcome { font-family: "DM Sans", sans-serif; font-size: 16px; font-weight: 600; line-height: 1.65; border-left: 2px solid var(--rose); padding-left: 16px; margin-bottom: 24px; }
+      .project-tags { margin-bottom: 18px; }
+      .project-tags span { font-size: 11px; letter-spacing: .02em; }
+      .item-badge { font-size: 10px; letter-spacing: .08em; }
+      .project-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+      .project-link { font-size: 12px; letter-spacing: .04em; min-height: 44px; display: inline-flex; align-items: center; border-bottom: 0; text-decoration: underline; }
+      .case-study { border-top: 1px solid var(--border); margin: 0 0 8px; }
+      .case-study summary { padding: 14px 0; font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 500; }
+      .case-study summary:hover { color: var(--rose); }
+      .case-study dl { display: grid; gap: 18px; padding: 4px 0 20px; }
+      .case-study dt { font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+      .case-study dd { font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.75; color: var(--muted); }
+      .field-notes { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .field-note { gap: 0; min-height: 350px; }
+      .field-note-num { font-size: 11px; opacity: 1; color: #c1b4b9; margin-bottom: 32px; }
+      .field-note h3 { font-size: clamp(22px,2vw,30px); line-height: 1.2; }
+      .field-note p { opacity: 1; color: #ddd2d6; }
+      .field-note-link { font-size: 11px; letter-spacing: .08em; opacity: 1; color: #e0a7b3; margin-top: auto; padding-top: 24px; }
+      .field-note:hover .field-note-num, .field-note:hover p { color: var(--muted); }
+      .field-note:hover .field-note-link { color: var(--rose); }
+      .contact-sub { max-width: 540px; }
+      .social-link { font-size: 12px; min-height: 44px; }
+      footer { gap: 24px; }
+      .footer-txt { font-size: 12px; }
+      .nostalgic-btn { min-height: 44px; display: inline-flex; align-items: center; color: var(--muted); border-color: var(--border); font-size: 11px; }
+      .nostalgic-btn:hover { opacity: 1; color: var(--ink); }
+      /* Progressive enhancement: readable without JavaScript or animation. */
+      @media (prefers-reduced-motion: no-preference) {
+        .reveal { transition: opacity .4s ease, transform .4s ease; }
+        .reveal.reveal-pending { opacity: 0; transform: translateY(14px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
+      @media (max-width: 1024px) {
+        .projects-grid { grid-template-columns: minmax(0,1fr); }
+        .project-item.featured { grid-column: auto; }
+        .nav-links { gap: 20px; }
+      }
+      @media (max-width: 820px) {
+        nav { padding: 12px 24px; }
+        .nav-contact { display: none; }
+        .menu-toggle { display: inline-flex; }
+        .nav-links { position: absolute; inset: 100% 0 auto; padding: 14px 24px 22px; background: var(--cream); border-bottom: 1px solid var(--border); box-shadow: 0 12px 20px rgba(28,20,24,.06); }
+        nav.menu-open .nav-links { display: flex; flex-direction: column; gap: 0; }
+        .nav-links a { padding-block: 8px; width: 100%; font-size: 14px; }
+        .hero { padding-top: 104px; min-height: auto; }
+        .hero-name { font-size: clamp(72px,14vw,114px); }
+        .hero-foot { max-width: 100%; margin-top: 12px; gap: 20px; }
+        .hero-desc strong { font-size: 21px; max-width: 500px; }
+        .hero-desc p { max-width: 520px; }
+        .build-loop { white-space: normal; }
+        .ticker { padding: 20px 24px; }
+        .ticker-track { justify-content: flex-start; gap: 14px 24px; }
+        .section-tag { margin-bottom: 32px; }
+        .section-intro { font-size: 17px; margin-top: -8px; }
+        .field-notes { grid-template-columns: minmax(0,1fr); }
+        .field-note { min-height: auto; padding: 28px; }
+        .field-note-num { margin-bottom: 22px; }
+        .field-note-link { margin-top: 0; }
+        .project-item { padding: 28px 24px; }
+        footer { gap: 16px; }
+      }
+      @media (max-width: 480px) {
+        .hero-name { font-size: clamp(70px,20vw,88px); }
+        .hero-desc strong { font-size: 20px; }
+        .project-item { padding: 24px 20px; }
+        .project-item.featured { gap: 28px; }
+        .project-title { font-size: 21px; }
+        .hero-actions { gap: 18px; }
+        .build-loop { font-size: 10px; letter-spacing: .01em; }
+      }
+      /* Reserve a separate area for the existing portrait on tall screens. */
+      @media (min-width: 821px) and (max-width: 1024px) {
+        .hero { min-height: auto; justify-content: flex-start; padding-bottom: calc(72vh + 48px); }
+        .hero-foot { max-width: 680px; }
+      }
+      @media (min-width: 1025px) and (max-aspect-ratio: 4/3) {
+        .hero { min-height: auto; justify-content: flex-start; padding-bottom: calc(92vh + 48px); }
+        .hero-foot { max-width: 680px; }
+      }
     </style>
   </head>
   <body>
-    <div class="noise"></div>
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="ring"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="noise" aria-hidden="true"></div>
 
     <!-- ── Nav ───────────────────────────────────── -->
-    <nav>
-      <a href="#" class="nav-logo">HILI — BIO</a>
-      <ul class="nav-links">
+    <nav aria-label="Main navigation">
+      <a href="#top" class="nav-logo" aria-label="Hili Mor — home">HILI MOR</a>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about" class="magnetic">About</a></li>
         <li><a href="#work" class="magnetic">Work</a></li>
         <li><a href="#stack" class="magnetic">Field notes</a></li>
         <li><a href="#contact" class="magnetic">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="https://xp.hili.bio" target="_blank" class="nostalgic-btn magnetic">🖥 Go Nostalgic!</a>
+        <a href="#contact" class="nav-contact">Let’s talk ↗</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false"><span>Menu</span><span aria-hidden="true">☰</span></button>
       </div>
     </nav>
 
+    <main id="main" tabindex="-1">
     <!-- ── Hero ──────────────────────────────────── -->
-    <section class="hero">
+    <section class="hero" id="top" aria-labelledby="heroName">
       <img src="avatar.png" alt="" class="hero-avatar" />
 
       <div class="hero-badge">
@@ -1067,35 +1099,36 @@
         <span>Building, testing, learning.</span>
       </div>
 
-      <div class="hero-name" id="heroName">
-        <div id="heroLine1">HILI</div>
+      <h1 class="hero-name" id="heroName">
+        <span id="heroLine1">HILI</span>
         <span class="line-2" id="heroLine2">MOR</span>
-      </div>
+      </h1>
 
       <div class="hero-foot">
         <div class="hero-desc">
           <strong>I build products, websites, and visual experiences.</strong>
+          <p>Development, design, and AI-assisted creative production — from the first idea to something people can use.</p>
           <div class="build-loop">
             idea → prototype → test → ship → learn
           </div>
         </div>
-        <div class="hero-scroll-label">Scroll</div>
+<div class="hero-actions"><a class="hero-cta" href="#work">Selected work ↗</a><a class="hero-contact" href="#contact">Let’s talk ↗</a></div>
       </div>
     </section>
 
     <!-- ── Ticker ─────────────────────────────────── -->
     <div class="ticker">
-      <div class="ticker-track" id="tickerTrack"></div>
+      <ul class="ticker-track" aria-label="How I work"><li class="ticker-item">Real problems</li><li class="ticker-item">The right tool</li><li class="ticker-item">Prototype & test</li><li class="ticker-item">Ship & learn</li><li class="ticker-item">Own the outcome</li></ul>
     </div>
 
     <!-- ── About ─────────────────────────────────── -->
     <section class="about" id="about">
       <div class="section-tag">01 / About</div>
       <div class="about-grid">
-        <div class="about-headline reveal">
+        <h2 class="about-headline reveal">
           Curiosity gets it started.<br />
           <em>Reality</em> makes it better.
-        </div>
+        </h2>
         <div class="about-right reveal">
           <p class="about-bio">
             I spent seven years in intelligence analysis, where incomplete
@@ -1122,11 +1155,12 @@
 
     <!-- ── Work ──────────────────────────────────── -->
     <section class="work" id="work">
-      <div class="section-tag">02 / Work</div>
-      <div class="work-filters">
-        <button class="filter-btn magnetic active" data-filter="all">All</button>
-        <button class="filter-btn magnetic" data-filter="professional">Professional</button>
-        <button class="filter-btn magnetic" data-filter="personal">Personal</button>
+      <h2 class="section-tag">02 / Selected work</h2>
+      <p class="section-intro">From production systems to visual worlds. The problem, the decisions, and what came out of the work.</p>
+      <div class="work-filters" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" type="button" aria-pressed="true" data-filter="all">All</button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="professional">Professional</button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="personal">Personal</button>
       </div>
       <div class="projects-grid">
 
@@ -1136,10 +1170,20 @@
             <div class="project-top"><span class="project-num">001</span><span class="project-year">2026</span></div>
             <span class="item-badge professional">Brand project</span>
             <h3 class="project-title">Velvet Army — Digital &amp; Creative Direction</h3>
-            <p class="project-desc">An editorial jewelry website and a visual world built around contrast. I connected web design, front-end development, AI-assisted campaign imagery, and a short brand film, with two alternate website concepts exploring warmth and coastal light.</p>
+            <p class="project-desc">An editorial jewelry website connecting web design, development, and AI-assisted creative direction.</p>
+            <p class="project-outcome">One visual direction, carried from campaign imagery into a working website.</p>
             <div class="project-tags"><span>Web design</span><span>Development</span><span>Art direction</span><span>AI imagery</span></div>
+          <details class="case-study"><summary aria-label="Project details — Velvet Army — Digital &amp; Creative Direction">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Express the brand’s contrast between softness, strength, and individuality across a digital experience.</dd></div>
+              <div><dt>My contribution</dt><dd>I connected art direction, front-end development, campaign imagery, and a short film, and built two alternate website concepts.</dd></div>
+              <div><dt>The result</dt><dd>An editorial website, two working design previews, selected campaign images, and a brand film.</dd></div>
+            </dl>
+          </details>
+          <div class="project-links">
             <a class="project-link" href="work/velvet-army/">Explore the project ↗</a>
             <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film ↗</a>
+          </div>
           </div>
         </div>
 
@@ -1152,12 +1196,22 @@
             </div>
             <span class="item-badge professional">Professional</span>
             <h3 class="project-title">SEGS — Tour Booking Platform</h3>
-            <p class="project-desc">A production booking and operations platform for a real EZ Raider tour business in Caesarea. It replaced phone-and-WhatsApp workflows with a bilingual system for customers, guides, and admins — and now serves real customers.</p>
+            <p class="project-desc">A bilingual booking and operations platform for an EZ Raider tour business in Caesarea.</p>
+            <p class="project-outcome">From phone and WhatsApp to a platform serving real customers.</p>
             <div class="project-tags">
               <span>React</span><span>TypeScript</span><span>Supabase</span><span>PostgreSQL</span><span>Tailwind</span>
             </div>
-            <a class="project-link" href="https://segs.co.il/" target="_blank">Live ↗</a>
-            <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank">GitHub ↗</a>
+          <details class="case-study"><summary aria-label="Project details — SEGS — Tour Booking Platform">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Bookings and day-to-day operations relied on phone-and-WhatsApp workflows.</dd></div>
+              <div><dt>My contribution</dt><dd>I built the full-stack platform for customers, guides, and admins, with Hebrew and English support.</dd></div>
+              <div><dt>The result</dt><dd>The system is live in production and replaces the previous manual workflows.</dd></div>
+            </dl>
+          </details>
+          <div class="project-links">
+            <a class="project-link" href="https://segs.co.il/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+            <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
           </div>
         </div>
 
@@ -1169,12 +1223,22 @@
           </div>
           <span class="item-badge personal">Personal</span>
           <h3 class="project-title">After Rain — Interactive Forest</h3>
-          <p class="project-desc">A miniature forest after rain, experienced from insect height. A standalone Three.js scene with a wet leaf, refracting water drop, shallow pool, procedural moss and ferns, firefly, and a shy snail.</p>
+          <p class="project-desc">An interactive miniature forest experienced from insect height, built as a standalone Three.js scene.</p>
+            <p class="project-outcome">A small world to explore, from a refracting water drop to a shy snail.</p>
           <div class="project-tags">
             <span>Three.js</span><span>WebGPU</span><span>TypeScript</span><span>WebGL 2</span>
           </div>
-          <a class="project-link" href="https://hilimor.github.io/after-rain/" target="_blank">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/after-rain" target="_blank">GitHub ↗</a>
+          <details class="case-study"><summary aria-label="Project details — After Rain — Interactive Forest">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Create the feeling of a forest after rain at a scale we rarely notice.</dd></div>
+              <div><dt>My contribution</dt><dd>I brought together a wet leaf, a water drop, a shallow pool, procedural moss and ferns, a firefly, and a snail in an interactive scene.</dd></div>
+              <div><dt>The result</dt><dd>A browser-based scene available to explore, with the source code on GitHub.</dd></div>
+            </dl>
+          </details>
+          <div class="project-links">
+          <a class="project-link" href="https://hilimor.github.io/after-rain/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+          <a class="project-link" href="https://github.com/HiliMor/after-rain" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
         </div>
 
         <div class="project-item reveal">
@@ -1185,12 +1249,22 @@
           </div>
           <span class="item-badge personal">Personal</span>
           <h3 class="project-title">Skógafoss — WebGPU Water Study</h3>
-          <p class="project-desc">An interactive real-time interpretation of Skógafoss, with a continuous waterfall, reflective river, detailed terrain, five viewpoints, four changing skies, and a native GPU spray simulation.</p>
+          <p class="project-desc">A real-time waterfall study exploring water, terrain, weather, and GPU simulation.</p>
+            <p class="project-outcome">Five viewpoints, four changing skies, and a native GPU spray simulation.</p>
           <div class="project-tags">
             <span>Three.js</span><span>WebGPU</span><span>JavaScript</span><span>GPU Compute</span>
           </div>
-          <a class="project-link" href="https://hilimor.github.io/skogafoss-waterfall/" target="_blank">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/skogafoss-waterfall" target="_blank">GitHub ↗</a>
+          <details class="case-study"><summary aria-label="Project details — Skógafoss — WebGPU Water Study">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Interpret the motion and atmosphere of Skógafoss as an interactive real-time scene.</dd></div>
+              <div><dt>My contribution</dt><dd>I built a continuous waterfall, reflective river, terrain, changing skies, and a GPU-powered spray simulation.</dd></div>
+              <div><dt>The result</dt><dd>An interactive water study with five viewpoints and four skies, available as a live browser experience.</dd></div>
+            </dl>
+          </details>
+          <div class="project-links">
+          <a class="project-link" href="https://hilimor.github.io/skogafoss-waterfall/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+          <a class="project-link" href="https://github.com/HiliMor/skogafoss-waterfall" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
         </div>
 
         <div class="project-item reveal">
@@ -1200,10 +1274,18 @@
           </div>
           <span class="item-badge professional">Professional</span>
           <h3 class="project-title">Enterprise Document Platform</h3>
-          <p class="project-desc">Contributing to a high-scale internal platform used by thousands of employees for creating and managing sensitive documents. My role involves maintaining core legacy infrastructures while developing new features for the next-generation version, ensuring data integrity and system stability.</p>
+          <p class="project-desc">Backend development within a team building an internal platform for creating and managing enterprise documents.</p>
+            <p class="project-outcome">Supporting a platform used by thousands of employees.</p>
           <div class="project-tags">
             <span>.NET</span><span>Angular</span><span>MSSQL</span><span>RabbitMQ</span><span>Redis</span><span>OpenShift</span>
           </div>
+          <details class="case-study"><summary aria-label="Project details — Enterprise Document Platform">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Support daily document workflows while the platform’s core infrastructure evolves.</dd></div>
+              <div><dt>My contribution</dt><dd>I maintain legacy infrastructure and build features for the next version, with a focus on data integrity and system stability.</dd></div>
+              <div><dt>The result</dt><dd>My work contributes to the ongoing operation and development of a platform used by thousands of employees.</dd></div>
+            </dl>
+          </details>
         </div>
 
 
@@ -1214,10 +1296,18 @@
           </div>
           <span class="item-badge professional">Professional</span>
           <h3 class="project-title">AI-Powered Data Retrieval Engine</h3>
-          <p class="project-desc">Applied MCP in a production enterprise environment to connect LLMs to complex internal databases. Built automated utilities for extracting unstructured data from legacy files, creating a pipeline that makes raw enterprise data accessible to AI systems.</p>
+          <p class="project-desc">An enterprise data pipeline connecting language models to internal databases and information extracted from legacy files.</p>
+            <p class="project-outcome">Making raw enterprise data accessible to AI systems.</p>
           <div class="project-tags">
             <span>Python</span><span>MCP</span><span>MSSQL</span><span>AI APIs</span>
           </div>
+          <details class="case-study"><summary aria-label="Project details — AI-Powered Data Retrieval Engine">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Useful information sits across complex databases and unstructured legacy files.</dd></div>
+              <div><dt>My contribution</dt><dd>I applied MCP in production and built automated utilities to extract unstructured data from legacy files.</dd></div>
+              <div><dt>The result</dt><dd>The resulting pipeline makes raw enterprise information accessible to AI systems.</dd></div>
+            </dl>
+          </details>
         </div>
 
         <div class="project-item reveal">
@@ -1227,11 +1317,19 @@
           </div>
           <span class="item-badge personal">Personal</span>
           <h3 class="project-title">Stroke Prediction — Data Mining</h3>
-          <p class="project-desc">A comparison of stroke-risk prediction methods in Python and WEKA. The most important result was not the highest score, but discovering why one evaluation was misleading.</p>
+          <p class="project-desc">A comparison of stroke-risk prediction methods in Python and WEKA, with a closer look at how the results were evaluated.</p>
+            <p class="project-outcome">Finding data leakage mattered more than keeping an impressive score.</p>
           <div class="project-tags">
             <span>Python</span><span>Jupyter</span><span>Scikit-learn</span><span>WEKA</span>
           </div>
-          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank">GitHub ↗</a>
+          <details class="case-study"><summary aria-label="Project details — Stroke Prediction — Data Mining">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Compare machine-learning methods and understand whether their reported results hold up.</dd></div>
+              <div><dt>My contribution</dt><dd>I compared models in Python and WEKA, analyzed the results, and investigated a misleading evaluation.</dd></div>
+              <div><dt>The result</dt><dd>The project identified data leakage and documents why the evaluation mattered more than the highest score.</dd></div>
+            </dl>
+          </details>
+          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
 
         <div class="project-item featured reveal">
@@ -1243,12 +1341,22 @@
           </div>
           <span class="item-badge personal">Personal</span>
           <h3 class="project-title">Picture House — Movie Recommender</h3>
-          <p class="project-desc">A movie recommendation product built on the MovieLens 25M dataset. Memory constraints changed the architecture: search is powered by TF-IDF and recommendations combine genome tags, collaborative filtering, and genre vectors.</p>
+          <p class="project-desc">A movie recommendation product built on MovieLens 25M, combining text search with hybrid recommendations.</p>
+            <p class="project-outcome">Memory constraints shaped an architecture that was simpler to run.</p>
           <div class="project-tags">
             <span>Python</span><span>Flask</span><span>TF-IDF</span><span>SVD</span><span>TMDB API</span><span>Railway</span>
           </div>
-          <a class="project-link" href="https://movie-recommendations.up.railway.app" target="_blank">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank">GitHub ↗</a>
+          <details class="case-study"><summary aria-label="Project details — Picture House — Movie Recommender">Project details</summary>
+            <dl>
+              <div><dt>The challenge</dt><dd>Make search and movie recommendations work within deployment memory limits.</dd></div>
+              <div><dt>My contribution</dt><dd>I combined TF-IDF search with genome tags, collaborative filtering, and genre vectors, adapting the architecture to the available memory.</dd></div>
+              <div><dt>The result</dt><dd>A deployed recommendation app with a live demo, source code, and notes on the architectural trade-offs.</dd></div>
+            </dl>
+          </details>
+          <div class="project-links">
+          <a class="project-link" href="https://movie-recommendations.up.railway.app" target="_blank" rel="noopener noreferrer">Live ↗</a>
+          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
           </div>
         </div>
 
@@ -1257,7 +1365,7 @@
 
     <!-- ── Field notes ───────────────────────────── -->
     <section class="stack" id="stack">
-      <div class="section-tag">03 / Field notes</div>
+      <h2 class="section-tag">03 / Field notes</h2>
       <p class="stack-intro reveal">
         The stack changes. The loop stays the same: build, test against reality,
         notice what breaks, and make the next version better.
@@ -1266,7 +1374,7 @@
         <a
           class="field-note"
           href="https://github.com/HiliMor/ez-raider-booking-platform#key-architectural-decisions"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           <span class="field-note-num">01 / PRODUCTION</span>
           <h3>Production is mostly edge cases.</h3>
@@ -1279,7 +1387,7 @@
         <a
           class="field-note"
           href="https://github.com/HiliMor/stroke-prediction-project#-note-on-weka-vs-python-results"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           <span class="field-note-num">02 / EVIDENCE</span>
           <h3>A higher score can be a worse result.</h3>
@@ -1292,7 +1400,7 @@
         <a
           class="field-note"
           href="https://github.com/HiliMor/movie-recommender#what-i-learned-building-this"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
         >
           <span class="field-note-num">03 / CONSTRAINTS</span>
           <h3>Limits are part of the design.</h3>
@@ -1308,183 +1416,90 @@
     <!-- ── Contact ────────────────────────────────── -->
     <section class="contact" id="contact">
       <div class="section-tag">04 / Contact</div>
-      <div class="contact-headline reveal">Have a real<br />problem?</div>
+      <h2 class="contact-headline reveal">Have a real<br />problem?</h2>
       <p class="contact-sub reveal">
-        I like useful ideas, messy questions,<br />and people who want to test them.
+        Have a product to build, a website to shape, or a visual idea to explore? Tell me what you have in mind.
       </p>
-      <a href="mailto:hello@hili.bio" class="contact-email reveal magnetic"
+      <a href="mailto:hello@hili.bio" class="contact-email reveal"
         >hello@hili.bio</a
       >
       <div class="contact-socials reveal">
-        <a href="https://github.com/HiliMor" target="_blank" class="social-link">GitHub</a>
-        <a href="https://x.com/Hili_100" target="_blank" class="social-link">X</a>
+        <a href="https://github.com/HiliMor" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+        <a href="https://x.com/Hili_100" target="_blank" rel="noopener noreferrer" class="social-link">X</a>
         <a href="https://contra.com/hili_m6nhtbbp" target="_blank" rel="noopener noreferrer" class="social-link">Contra</a>
       </div>
     </section>
 
+    </main>
     <!-- ── Footer ─────────────────────────────────── -->
     <footer>
       <span class="footer-txt">© 2026 Hili Mor. All rights reserved.</span>
+      <a href="https://xp.hili.bio" target="_blank" rel="noopener noreferrer" class="nostalgic-btn">🖥 Go Nostalgic! ↗</a>
     </footer>
 
     <script>
-      /* ── Custom cursor ──────────────────────────── */
-      const cursor = document.getElementById("cursor");
-      const ring = document.getElementById("ring");
-      let mx = 0,
-        my = 0,
-        rx = 0,
-        ry = 0;
 
-      document.addEventListener("mousemove", (e) => {
-        mx = e.clientX;
-        my = e.clientY;
-        cursor.style.left = mx + "px";
-        cursor.style.top = my + "px";
-      });
-
-      (function loopRing() {
-        rx += (mx - rx) * 0.13;
-        ry += (my - ry) * 0.13;
-        ring.style.left = rx + "px";
-        ring.style.top = ry + "px";
-        requestAnimationFrame(loopRing);
-      })();
-
-      document.querySelectorAll("a, button, .project-item").forEach((el) => {
-        el.addEventListener("mouseenter", () =>
-          document.body.classList.add("hovered"),
-        );
-        el.addEventListener("mouseleave", () =>
-          document.body.classList.remove("hovered"),
-        );
-      });
-
-      /* ── Ticker ─────────────────────────────────── */
-      const TICKER_ITEMS = [
-        "Real problems",
-        "The right tool",
-        "Prototype",
-        "Test",
-        "Ship",
-        "Learn from users",
-        "Own the outcome",
-        "Iterate",
-        "WebGPU studies",
-      ];
-      const track = document.getElementById("tickerTrack");
-      function renderTicker() {
-        const chunk = TICKER_ITEMS
-          .map((item) => `<span class="ticker-item">${item}</span>`)
-          .join("");
-        track.innerHTML = chunk + chunk + chunk;
+      const nav = document.querySelector("nav");
+      const menuToggle = document.getElementById("menuToggle");
+      function setMenu(open) {
+        nav.classList.toggle("menu-open", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.querySelector("span").textContent = open ? "Close" : "Menu";
       }
-      renderTicker();
-
-      /* ── Text scramble ──────────────────────────── */
-      const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-      function scrambleTo(el, finalText, delay = 0) {
-        const len = Math.max(el.textContent.length, finalText.length);
-        const queue = Array.from({ length: len }, (_, i) => ({
-          to: finalText[i] || "",
-          start: Math.floor(Math.random() * 8) + delay,
-          end: Math.floor(Math.random() * 8) + delay + 6,
-          char: "",
-        }));
-        let frame = 0;
-        let raf;
-
-        function tick() {
-          let out = "";
-          let done = 0;
-          for (const q of queue) {
-            if (frame >= q.end) {
-              out += q.to;
-              done++;
-            } else if (frame >= q.start) {
-              if (!q.char || Math.random() < 0.3) {
-                q.char = CHARS[Math.floor(Math.random() * CHARS.length)];
-              }
-              out += `<span style="opacity:.3">${q.char}</span>`;
-            } else {
-              out += q.to === "" ? "" : '<span style="opacity:.1">—</span>';
-            }
-          }
-          el.innerHTML = out;
-          if (done < queue.length) {
-            frame++;
-            raf = requestAnimationFrame(tick);
-          }
+      menuToggle.addEventListener("click", () => setMenu(menuToggle.getAttribute("aria-expanded") !== "true"));
+      nav.addEventListener("keydown", event => {
+        if (event.key === "Escape" && nav.classList.contains("menu-open")) {
+          setMenu(false);
+          menuToggle.focus();
         }
-        raf = requestAnimationFrame(tick);
+      });
+      document.addEventListener("click", event => {
+        if (!nav.contains(event.target)) setMenu(false);
+      });
+      document.querySelectorAll(".nav-links a, .nav-logo").forEach(link => {
+        link.addEventListener("click", () => setMenu(false));
+      });
+      window.matchMedia("(max-width: 820px)").addEventListener("change", () => setMenu(false));
+      const updateNav = () => nav.classList.toggle("scrolled", window.scrollY > 16);
+      window.addEventListener("scroll", updateNav, { passive: true });
+      updateNav();
+
+      // One short entrance transition; content stays visible without JavaScript.
+      const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if ("IntersectionObserver" in window && !motionPreference.matches) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove("reveal-pending");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0, rootMargin: "0px 0px 32px 0px" });
+        document.querySelectorAll(".reveal").forEach(element => {
+          if (element.getBoundingClientRect().top > window.innerHeight) {
+            element.classList.add("reveal-pending");
+            observer.observe(element);
+          }
+        });
+        motionPreference.addEventListener("change", () => {
+          if (motionPreference.matches) {
+            observer.disconnect();
+            document.querySelectorAll(".reveal-pending").forEach(element => element.classList.remove("reveal-pending"));
+          }
+        });
       }
-
-      window.addEventListener("load", () => {
-        scrambleTo(document.getElementById("heroLine1"), "HILI", 0);
-        scrambleTo(document.getElementById("heroLine2"), "MOR", 4);
-      });
-
-      /* ── Scroll reveal ──────────────────────────── */
-      const revealObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("in");
-              revealObs.unobserve(e.target);
-            }
+      document.querySelectorAll(".filter-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach(candidate => {
+            candidate.classList.toggle("active", candidate === button);
+            candidate.setAttribute("aria-pressed", String(candidate === button));
           });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -48px 0px" },
-      );
-
-      document.querySelectorAll(".reveal").forEach((el, i) => {
-        el.style.transitionDelay = i * 0.06 + "s";
-        revealObs.observe(el);
-      });
-
-      /* ── Work filter tabs ───────────────────────── */
-      document.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          const filter = btn.dataset.filter;
-          document.querySelectorAll(".project-item").forEach((item) => {
-            const badge = item.querySelector(".item-badge");
-            if (filter === "all" || badge.classList.contains(filter)) {
-              item.classList.remove("hidden");
-            } else {
-              item.classList.add("hidden");
-            }
+          document.querySelectorAll(".project-item").forEach(item => {
+            const show = button.dataset.filter === "all" || item.querySelector(".item-badge").classList.contains(button.dataset.filter);
+            item.classList.toggle("hidden", !show);
           });
         });
       });
-
-      /* ── Magnetic elements ──────────────────────── */
-      document.querySelectorAll(".magnetic").forEach((el) => {
-        el.addEventListener("mousemove", (e) => {
-          const rect = el.getBoundingClientRect();
-          const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.35;
-          const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.35;
-          el.style.transition = "transform 0.1s";
-          el.style.transform = `translate(${dx}px, ${dy}px)`;
-        });
-        el.addEventListener("mouseleave", () => {
-          el.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-          el.style.transform = "translate(0, 0)";
-        });
-      });
-
-/* ── Nav smooth scroll (no URL change) ─────── */
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = document.querySelector(link.getAttribute("href"));
-          if (target) target.scrollIntoView({ behavior: "smooth" });
-        });
-      });
-
-
     </script>
   </body>
 </html>
