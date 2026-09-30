@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Wireframe אינטראקטיבי לאטלס תשומת הלב הישראלית"
+    />
+    <title>קשב — אטלס תשומת הלב הישראלית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="קשב — דף הבית">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>קשב</span>
+      </a>
+
+      <nav aria-label="ניווט ראשי">
+        <a class="active" href="#now">עכשיו</a>
+        <a href="#timeline">ציר הזמן</a>
+        <a href="#displaced">הנושא שנעלם</a>
+        <a href="#methodology">מתודולוגיה</a>
+      </nav>
+
+      <div class="prototype-badge" id="prototype-badge"><span></span> אבטיפוס · נתוני הדגמה</div>
+    </header>
+
+    <main id="now">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">אטלס תשומת הלב הישראלית</p>
+          <h1 id="page-title">על מה מדברים<br />בישראל עכשיו?</h1>
+        </div>
+        <div class="hero-copy">
+          <p>
+            תמונת מצב של סדר היום באתרי החדשות: מה צומח, מה דועך ומה נדחק
+            מהכותרות.
+          </p>
+          <div class="timestamp">
+            <span class="pulse" aria-hidden="true"></span>
+            <span>עדכון הדגמה</span>
+            <strong>21:30</strong>
+            <span>·</span>
+            <span>30 בספטמבר 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="מסננים">
+        <div class="control-group">
+          <span class="control-label">טווח זמן</span>
+          <div class="segmented" role="group" aria-label="בחירת טווח זמן">
+            <button class="range-button active" data-range="24h">24 שעות</button>
+            <button class="range-button" data-range="7d">7 ימים</button>
+            <button class="range-button" data-range="30d">30 ימים</button>
+          </div>
+        </div>
+
+        <div class="control-group source-control">
+          <span class="control-label">מקורות</span>
+          <div class="source-list" role="group" aria-label="סינון מקורות">
+            <button class="source-button active" data-source="all">כולם</button>
+            <button class="source-button" data-source="kan">כאן</button>
+            <button class="source-button" data-source="ynet">ynet</button>
+            <button class="source-button" data-source="walla">וואלה</button>
+            <button class="source-button" data-source="israelhayom">ישראל היום</button>
+            <button class="source-button" data-source="n12">N12</button>
+            <button class="source-button" data-source="globes">גלובס</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="pipeline-status" id="pipeline-status" hidden aria-live="polite">
+        <div class="pipeline-icon" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div>
+          <strong id="pipeline-title">מנוע האיסוף פעיל</strong>
+          <p id="pipeline-copy"></p>
+        </div>
+        <span id="pipeline-time"></span>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="visual-card" aria-labelledby="attention-map-title">
+          <header class="card-header">
+            <div>
+              <p class="card-kicker">מפת תשומת הלב</p>
+              <h2 id="attention-map-title">חלוקת הכותרות לפי נושא</h2>
+            </div>
+            <div class="metric-select" aria-label="מדד נוכחי">
+              <span>גודל</span>
+              <strong>נתח מהסיקור</strong>
+            </div>
+          </header>
+
+          <div class="legend" aria-label="מקרא קטגוריות">
+            <span><i class="security"></i> ביטחון</span>
+            <span><i class="politics"></i> פוליטיקה</span>
+            <span><i class="economy"></i> כלכלה</span>
+            <span><i class="society"></i> חברה</span>
+            <span><i class="world"></i> עולם</span>
+          </div>
+
+          <div class="bubble-map" id="bubble-map" aria-live="polite"></div>
+
+          <footer class="map-footer">
+            <span><i class="trend-icon up">↗</i> נושא בצמיחה</span>
+            <span><i class="trend-icon down">↘</i> נושא בדעיכה</span>
+            <span class="map-hint">לחצו על נושא כדי לראות מה מרכיב אותו</span>
+          </footer>
+        </article>
+
+        <aside class="detail-card" aria-live="polite" aria-labelledby="detail-title">
+          <div class="detail-topline">
+            <span id="detail-category">ביטחון</span>
+            <span id="detail-rank">#1 בסדר היום</span>
+          </div>
+          <h2 id="detail-title">ביטחון אזורי</h2>
+          <p id="detail-summary">
+            רצף אירועים מדיניים וביטחוניים מרכז את עיקר הסיקור בשעות האחרונות.
+          </p>
+
+          <div class="primary-stat">
+            <strong id="detail-share">28%</strong>
+            <span>מכלל הכותרות</span>
+            <em id="detail-change" class="positive">↑ 8.4 נק׳</em>
+          </div>
+
+          <div class="mini-chart" id="mini-chart" aria-label="מגמת הנושא לאורך היום"></div>
+          <div class="chart-labels"><span>00:00</span><span>עכשיו</span></div>
+
+          <dl class="detail-metrics">
+            <div><dt>פריטים</dt><dd id="detail-articles">86</dd></div>
+            <div><dt>מקורות</dt><dd id="detail-sources">6 מתוך 6</dd></div>
+            <div><dt>שיא</dt><dd id="detail-peak">19:40</dd></div>
+          </dl>
+
+          <div class="headline-stack">
+            <div class="section-title"><span>כותרות מייצגות</span><small>נתוני הדגמה</small></div>
+            <div id="headline-list"></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="insight-strip" id="displaced">
+        <div class="insight-number">01</div>
+        <div class="insight-copy">
+          <p class="card-kicker">התבוננות ראשונה</p>
+          <h2>כשנושא אחד גדל, משהו אחר כמעט תמיד מתכווץ.</h2>
+          <p>
+            ב־6 השעות האחרונות נושא הביטחון גדל ב־8.4 נקודות. במקביל, הסיקור
+            בנושאי בריאות, חינוך ודיור ירד יחד ב־6.1 נקודות.
+          </p>
+        </div>
+        <div class="displacement-bars" aria-label="שינוי בנתח הסיקור">
+          <div><span>ביטחון</span><i style="--value: 84%"></i><strong>+8.4</strong></div>
+          <div><span>בריאות</span><i class="negative" style="--value: 35%"></i><strong>−2.8</strong></div>
+          <div><span>חינוך</span><i class="negative" style="--value: 24%"></i><strong>−1.9</strong></div>
+          <div><span>דיור</span><i class="negative" style="--value: 18%"></i><strong>−1.4</strong></div>
+        </div>
+      </section>
+
+      <section class="method-note" id="methodology">
+        <span>מה אנחנו מודדים?</span>
+        <p>
+          כותרות ומטא־דאטה שפורסמו בגופי חדשות — לא את דעת הציבור ולא את חשיבות
+          האירועים. בשלב זה כל הנתונים במסך הם להמחשת החוויה בלבד.
+        </p>
+        <a href="./research/feasibility.md">למחקר ההיתכנות ←</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>קשב · אבטיפוס מחקרי</span>
+      <span>שקיפות לפני פרשנות</span>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
