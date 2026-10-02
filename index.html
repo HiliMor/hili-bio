@@ -579,10 +579,6 @@
         gap: 6px;
         transition: color 0.2s;
       }
-      .social-link::after {
-        content: "↗";
-        font-size: 13px;
-      }
       .social-link:hover {
         color: var(--ink);
       }
@@ -1007,7 +1003,9 @@
       .footer-txt { font-size: 12px; }
       .nostalgic-btn { min-height: 44px; display: inline-flex; align-items: center; color: var(--muted); border-color: var(--border); font-size: 11px; }
       .nostalgic-btn:hover { opacity: 1; color: var(--ink); }
-      video.project-preview { height: auto; aspect-ratio: auto; }
+      .project-item .project-preview { height: auto; object-fit: contain; }
+      video.project-preview { aspect-ratio: auto; }
+      .link-arrow { display: inline-block; width: 1em; height: 1em; flex: 0 0 1em; margin-left: .4em; vertical-align: -.12em; }
       /* Progressive enhancement: readable without JavaScript or animation. */
       @media (prefers-reduced-motion: no-preference) {
         .reveal { transition: opacity .2s ease, transform .2s ease; }
@@ -1425,7 +1423,7 @@
         <li><a href="#contact" class="magnetic">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="#contact" class="nav-contact">Let’s talk ↗</a>
+        <a href="#contact" class="nav-contact">Let’s talk<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navLinks" aria-expanded="false"><span>Menu</span><span aria-hidden="true">☰</span></button>
       </div>
     </nav>
@@ -1453,7 +1451,7 @@
             idea → prototype → test → ship → learn
           </div>
         </div>
-<div class="hero-actions"><a class="hero-cta" href="#work">Selected work ↗</a><a class="hero-contact" href="#contact">Let’s talk ↗</a></div>
+<div class="hero-actions"><a class="hero-cta" href="#work">Selected work<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a><a class="hero-contact" href="#contact">Let’s talk<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a></div>
       </div>
     </section>
 
@@ -1522,14 +1520,14 @@
             </dl>
           </details>
           <div class="project-links">
-            <a class="project-link" href="work/velvet-army/">Explore the project ↗</a>
-            <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film ↗</a>
+            <a class="project-link" href="work/velvet-army/">Explore the project<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            <a class="project-link" href="work/velvet-army/#campaign">Campaign &amp; film<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
           </div>
         </div>
 
         <div class="project-item featured reveal">
-          <video class="project-preview" data-src="/assets/segs-home-scroll-16cd829e6e.mp4" data-poster="/assets/segs-home-scroll-poster-10ebb3dec5.webp" width="720" height="406" preload="none" muted loop playsinline controls aria-label="SEGS EZ Raider booking platform demo"></video><noscript><img class="project-preview" src="/assets/segs-home-scroll-poster-10ebb3dec5.webp" width="720" height="406" alt="SEGS EZ Raider booking platform demo" loading="lazy" /></noscript>
+          <video class="project-preview" data-src="/assets/segs-home-scroll-16cd829e6e.mp4" data-poster="/assets/segs-home-scroll-poster-10ebb3dec5.webp" width="720" height="406" style="aspect-ratio: 720 / 406" preload="none" muted loop playsinline controls aria-label="SEGS EZ Raider booking platform demo"></video><noscript><img class="project-preview" src="/assets/segs-home-scroll-poster-10ebb3dec5.webp" width="720" height="406" alt="SEGS EZ Raider booking platform demo" loading="lazy" /></noscript>
           <div class="project-content">
             <div class="project-top">
               <span class="project-num">002</span>
@@ -1550,8 +1548,8 @@
             </dl>
           </details>
           <div class="project-links">
-            <a class="project-link" href="https://segs.co.il/" target="_blank" rel="noopener noreferrer">Live ↗</a>
-            <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="project-link" href="https://segs.co.il/" target="_blank" rel="noopener noreferrer">Live<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            <a class="project-link" href="https://github.com/HiliMor/ez-raider-booking-platform" target="_blank" rel="noopener noreferrer">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
           </div>
         </div>
@@ -1577,8 +1575,8 @@
             </dl>
           </details>
           <div class="project-links">
-          <a class="project-link" href="https://hilimor.github.io/after-rain/" target="_blank" rel="noopener noreferrer">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/after-rain" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="project-link" href="https://hilimor.github.io/after-rain/" target="_blank" rel="noopener noreferrer">Live<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+          <a class="project-link" href="https://github.com/HiliMor/after-rain" target="_blank" rel="noopener noreferrer">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
         </div>
 
@@ -1603,8 +1601,8 @@
             </dl>
           </details>
           <div class="project-links">
-          <a class="project-link" href="https://hilimor.github.io/skogafoss-waterfall/" target="_blank" rel="noopener noreferrer">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/skogafoss-waterfall" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="project-link" href="https://hilimor.github.io/skogafoss-waterfall/" target="_blank" rel="noopener noreferrer">Live<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+          <a class="project-link" href="https://github.com/HiliMor/skogafoss-waterfall" target="_blank" rel="noopener noreferrer">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
         </div>
 
@@ -1670,11 +1668,11 @@
               <div><dt>The result</dt><dd>The project identified data leakage and documents why the evaluation mattered more than the highest score.</dd></div>
             </dl>
           </details>
-          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="project-link" href="https://github.com/HiliMor/stroke-prediction-project" target="_blank" rel="noopener noreferrer">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
         </div>
 
         <div class="project-item featured reveal">
-          <video class="project-preview" data-src="/assets/demo-625d5699a9.mp4" data-poster="/assets/demo-poster-222fd7aebf.webp" width="1112" height="720" preload="none" muted loop playsinline controls aria-label="Picture House movie recommender demo"></video><noscript><img class="project-preview" src="/assets/demo-poster-222fd7aebf.webp" width="1112" height="720" alt="Picture House movie recommender demo" loading="lazy" /></noscript>
+          <video class="project-preview" data-src="/assets/demo-625d5699a9.mp4" data-poster="/assets/demo-poster-222fd7aebf.webp" width="1112" height="720" style="aspect-ratio: 1112 / 720" preload="none" muted loop playsinline controls aria-label="Picture House movie recommender demo"></video><noscript><img class="project-preview" src="/assets/demo-poster-222fd7aebf.webp" width="1112" height="720" alt="Picture House movie recommender demo" loading="lazy" /></noscript>
           <div class="project-content">
           <div class="project-top">
             <span class="project-num">008</span>
@@ -1695,8 +1693,8 @@
             </dl>
           </details>
           <div class="project-links">
-          <a class="project-link" href="https://movie-recommendations.up.railway.app" target="_blank" rel="noopener noreferrer">Live ↗</a>
-          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="project-link" href="https://movie-recommendations.up.railway.app" target="_blank" rel="noopener noreferrer">Live<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+          <a class="project-link" href="https://github.com/HiliMor/movie-recommender" target="_blank" rel="noopener noreferrer">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
           </div>
         </div>
@@ -1723,7 +1721,7 @@
             Payments, retries, failed delivery, and real people doing the
             unexpected taught me more than the happy path.
           </p>
-          <span class="field-note-link">Read the build note ↗</span>
+          <span class="field-note-link">Read the build note<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
         </a>
         <a
           class="field-note"
@@ -1736,7 +1734,7 @@
             Finding data leakage in my first ML experiment mattered more than
             keeping the impressive number.
           </p>
-          <span class="field-note-link">Read the build note ↗</span>
+          <span class="field-note-link">Read the build note<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
         </a>
         <a
           class="field-note"
@@ -1749,7 +1747,7 @@
             A memory limit changed the recommender architecture — and made it
             simpler to run.
           </p>
-          <span class="field-note-link">Read the build note ↗</span>
+          <span class="field-note-link">Read the build note<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
         </a>
       </div>
     </section>
@@ -1765,9 +1763,9 @@
         >hello@hili.bio</a
       >
       <div class="contact-socials reveal">
-        <a href="https://github.com/HiliMor" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-        <a href="https://x.com/Hili_100" target="_blank" rel="noopener noreferrer" class="social-link">X</a>
-        <a href="https://contra.com/hili_m6nhtbbp" target="_blank" rel="noopener noreferrer" class="social-link">Contra</a>
+        <a href="https://github.com/HiliMor" target="_blank" rel="noopener noreferrer" class="social-link">GitHub<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+        <a href="https://x.com/Hili_100" target="_blank" rel="noopener noreferrer" class="social-link">X<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+        <a href="https://contra.com/hili_m6nhtbbp" target="_blank" rel="noopener noreferrer" class="social-link">Contra<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
       </div>
     </section>
 
@@ -1775,7 +1773,7 @@
     <!-- ── Footer ─────────────────────────────────── -->
     <footer>
       <span class="footer-txt">© 2026 Hili Mor. All rights reserved.</span>
-      <a href="https://xp.hili.bio" target="_blank" rel="noopener noreferrer" class="nostalgic-btn">🖥 Go Nostalgic! ↗</a>
+      <a href="https://xp.hili.bio" target="_blank" rel="noopener noreferrer" class="nostalgic-btn">🖥 Go Nostalgic!<svg class="link-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
     </footer>
 
     <script>
